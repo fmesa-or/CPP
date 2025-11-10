@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/10/28 18:43:23 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/10 15:01:08 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,16 @@ CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 CLEAN = rm -f
 
 #Sources
-SRC = phonebook.cpp
+SRC_DIR = src
+SRC = $(shell find $(SRC_DIR) -name "*.cpp")
 
 #Objects
-OBJ = $(SRC:.cpp=.o)
+OBJ_DIR = obj
+#OBJ = $(SRC:.cpp=.o)
+OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
+
+#Headers
+HEADERS = -I include/
 
 #Colors
 COLOR_INFO = \033[1;36m
@@ -39,17 +45,18 @@ COLOR_HEADER = \033[1;35m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CPPFLAGS) $(OBJ) $(HEADERS) -o $(NAME)
 	@printf "\r\033[K$(COLOR_SUCCESS)✅ $(NAME) is ready!$(COLOR_RESET)\n"
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(dir $@)
 	@printf "$(COLOR_INFO)Building $(NAME)...$(COLOR_RESET)\n"
-	@$(CC) $(CPPFLAGS) -c $< -o $@
+	@$(CC) $(CPPFLAGS) -c $< -o $@ $(HEADERS)
 
 
 clean:
 	@printf "$(COLOR_INFO)Cleaning object files...$(COLOR_RESET)"
-	@$(CLEAN) $(OBJ)
+	@$(CLEAN) -r $(OBJ_DIR)
 	@printf "\r$(COLOR_SUCCESS)✅ Object files cleaned successfully!$(COLOR_RESET)\n"
 
 fclean: clean
