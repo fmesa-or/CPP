@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:24:31 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/10 15:58:32 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:24:45 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,25 @@ std::string	strtrim(std::string& str) {
 	if (start == std::string::npos)
 		return "";
 	std::string::size_type end = str.find_last_not_of(whitespaces);
-	return str.substr(start, end - start + 1);
+	return (str.substr(start, end - start + 1));
 }
 
+/****************************************************************
+ * Displays Error followed by a line jump and the text inserted.*
+ ***************************************************************/
 void	error_msg(const std::string error_msg) {
 	std::cout << RD << "Error\n" << error_msg << std::endl;
 }
 
-/**
- * 
- */
+/*******************************************************
+ * Loop. Displays error until a good input is inserted.*
+ ******************************************************/
 size_t	get_option(void) {
 	std::string	line;
 	size_t		option;
 
 	while(true) {
-		std::cout << YL << "Enter a valid option number: " << std::flush;
+		std::cout << YL << "Enter a valid option number: " << RES << std::flush;
 		std::getline(std::cin, line);
 		handle_eof();
 		line = strtrim(line);
@@ -78,4 +81,20 @@ size_t	get_option(void) {
 		break;
 	}
 	return (option);
+}
+
+std::string	get_user_input(std::string msg) {
+	std::string	line;
+
+	while (true) {
+		std::cout << PI << msg << RES << std::flush;
+		std::getline(std::cin, line);
+		handle_eof();
+		if (line.empty()) {
+			std::cout << RD << "Empty input! Try again!\n" << RES << std::flush;
+			continue;
+		}
+		break;
+	}
+	return (line);
 }

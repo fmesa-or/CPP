@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:59:15 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/10 15:04:23 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:09:54 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,29 @@ contact information, one field per line.
 */
 
 //Ignore any other input.
-#include "Utils.hpp"
+#include "PhoneBook.hpp"
 
 int	main() {
 	size_t	option = 0;
+	PhoneBook myNewPhoneBook;
 
 	std::cout << IB << "PhoneBook open!" << RES << std::endl;
 	while (option != EXIT) {
 		display_options();
 		option = get_option();
-		break;
+		switch (option) {
+			case ADD:
+				myNewPhoneBook.addContact();
+				break;
+			case SEARCH:
+			//	myNewPhoneBook.searchContact();
+				break;
+			case EXIT:
+				std::cout << GR << "Sayonara Baby!" << std::endl;
+				break;
+			default:
+				error_msg("Invalid input.");
+		}
 	}
-	return 0;
+	return (0);
 }

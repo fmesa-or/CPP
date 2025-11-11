@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/10 15:01:08 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/11 13:33:11 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
-	@printf "$(COLOR_INFO)Building $(NAME)...$(COLOR_RESET)\n"
+	@printf "\r$(COLOR_INFO)Building $(NAME)... [%s]$(COLOR_RESET)" $(notdir $<)
 	@$(CC) $(CPPFLAGS) -c $< -o $@ $(HEADERS)
 
 

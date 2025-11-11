@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:13:43 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/10 14:19:50 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/11 13:49:39 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,16 @@ class Contact {
 		std::string _phoneNumber;
 		std::string _darkestSecret;
 	public:
-	
-};
+		// SETTERS
+		void	settFirstName(const std::string& firstName);
+		void	setLastName(const std::string& lastName);
+		void	setNickName(const std::string& nickName);
+		void	setPhoneNumber(const std::string& number);
+		void	setSecret(const std::string& secret);
+
+		// GETTERS
+		
+
+	};
 
 # endif
