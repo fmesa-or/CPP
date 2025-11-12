@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:24:31 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/11 14:24:45 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/12 14:21:00 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
  * Prints the options abailables in the program.*
  ***********************************************/
 void	display_options(void) {
-	std::cout << YL << "Options:\n" << RES;
-	std::cout << CI << "-> 1.ADD\n-> 2.SEARCH\n-> 3.EXIT\n" << RES;
+	std::cout << IB << "Options:\n" << RES;
+	std::cout << CI << "-> 1.ADD\n-> 2.SEARCH\n-> 3.EXIT" << RES << std::endl;
 }
 
 /**********************************************
@@ -25,7 +25,7 @@ void	display_options(void) {
  *********************************************/
 void	handle_eof(void) {
 	if (std::cin.eof()) {
-		std::cout << RD << "\nEOF detected.\tExiting..." << RES << std::endl;
+		std::cout << RD << "\n\tEOF detected.\tExiting..." << RES << std::endl;
 		exit(0);
 	}
 }
@@ -48,7 +48,7 @@ std::string	strtrim(std::string& str) {
  * Displays Error followed by a line jump and the text inserted.*
  ***************************************************************/
 void	error_msg(const std::string error_msg) {
-	std::cout << RD << "Error\n" << error_msg << std::endl;
+	std::cout << RD << "\nError\n" << error_msg << std::endl;
 }
 
 /*******************************************************
@@ -59,7 +59,7 @@ size_t	get_option(void) {
 	size_t		option;
 
 	while(true) {
-		std::cout << YL << "Enter a valid option number: " << RES << std::flush;
+		std::cout << YL << "\nEnter a valid option number: " << RES << std::flush;
 		std::getline(std::cin, line);
 		handle_eof();
 		line = strtrim(line);
@@ -83,6 +83,9 @@ size_t	get_option(void) {
 	return (option);
 }
 
+/**
+ * 
+ */
 std::string	get_user_input(std::string msg) {
 	std::string	line;
 
@@ -92,6 +95,45 @@ std::string	get_user_input(std::string msg) {
 		handle_eof();
 		if (line.empty()) {
 			std::cout << RD << "Empty input! Try again!\n" << RES << std::flush;
+			continue;
+		}
+		break;
+	}
+	return (line);
+}
+
+/**
+ * 
+ */
+std::string	format_field(const std::string& str) {
+	if (str.length() > 10)
+		return(str.substr(0, 9) + '.');
+	return (str);
+}
+
+/**
+ * 
+ */
+std::string	get_index_input(size_t maxContacts) {
+	std::string	line;
+	size_t		index;
+
+	while (true) {
+		std::cout << YL << "Enter index contact to display full info: " << RES << std::flush;
+		std::getline(std::cin, line);
+		handle_eof();
+		if (line.empty()) {
+			std::cout << RD << "Empty input! Try again!\n" << RES << std::flush;
+			continue;
+		}
+		else if (line.length() != 1 || !std::isdigit(line[0])) {
+			error_msg("Invalid Index!");
+			display_options();
+			continue;
+		}
+		index = line[0] - '0';
+		if (index < 1 || index > maxContacts) {
+			error_msg("Invalid index!");
 			continue;
 		}
 		break;

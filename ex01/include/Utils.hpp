@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:18:46 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/11 14:26:14 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:57:46 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 #define UTILS_HPP
 
 /* INCLUDES */
-#include "iostream"
-#include "cstdlib"
+#include <iostream>
+#include <cstdlib>
+#include <iomanip>
+#include <string>
+#include <sstream>
 
 /* COLORS */
 # define GR		"\033[1;92m"
@@ -40,5 +43,7 @@ std::string	strtrim(std::string& str);
 void		error_msg(const std::string error_msg);
 size_t		get_option(void);
 std::string	get_user_input(std::string msg);
+std::string	format_field(const std::string& str);
+std::string	get_index_input(size_t maxContacts);
 
 #endif

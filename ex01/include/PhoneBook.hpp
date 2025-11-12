@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:10:17 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/11 14:09:45 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:53:21 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@
 
 /* CLASSES*/
 class PhoneBook {
-	//array of contacts
-	//max 8 contacts
 	//if add 9th, replaces the oldest
-	//dinamic allocation is forbidden
 	private:
-		Contact	contacts[8];
-		size_t	contactCount;
+		Contact	_contacts[8];
+		size_t	_contactCount;
 		void	storeContact(const Contact& contact);
 	public:
 		PhoneBook();
+		~PhoneBook();
 		void	addContact();
-//		void	searchContact();
+		void	searchContact();
+		void	printContactsTable(size_t maxContacts) const;
+		void	showContactInfo(std::string line) const;
 };
-
 #endif

@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:24:44 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/11 14:04:28 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/12 14:11:26 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,24 @@ void	Contact::setSecret(const std::string& secret) {
 	_darkestSecret = secret;
 }
 
+//GETTERS
+
+std::string	Contact::getFirstName(void) const {
+	return (_firstName);
+}
+
+std::string	Contact::getLastName(void) const {
+	return (_lastName);
+}
+
+std::string	Contact::getNickName(void) const {
+	return (_nickName);
+}
+
+std::string	Contact::getPhoneNumber(void) const {
+	return (_phoneNumber);
+}
+
+std::string	Contact::getDarkestSecret(void) const {
+	return (_darkestSecret);
+}

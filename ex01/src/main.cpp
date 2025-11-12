@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:59:15 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/11 14:09:54 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:03:05 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,6 @@ used outside a class is public.
 //At start-up phonebook is empty
 //Prompted to enter one of three commands: ADD, SEARCH or EXIT.
 
-/*ADD
-	Prompt to input the info of a new contact one field at a time. Once all the fields have been completed add it ti tge phonebook*
-*/
-
-/*SEARCH
-	Display the saved contacts as a list of 4 columns: index, first name, last name and nickname
-	Each column has 10 chars wide. Separeted with a pipe. Right-aligned text. If longer than 10 chars, truncate it and last char is a dot ('.').
-	Then, prompt the user again for the index of the entry to display. If the index
-is out of range or wrong, define a relevant behavior. Otherwise, display the
-contact information, one field per line.
-*/
-
-/*EXIT
-	Quit and contacts are lost forever!
-*/
 
 //Ignore any other input.
 #include "PhoneBook.hpp"
@@ -46,7 +31,7 @@ int	main() {
 	size_t	option = 0;
 	PhoneBook myNewPhoneBook;
 
-	std::cout << IB << "PhoneBook open!" << RES << std::endl;
+	std::cout << YL << "\t\tPhoneBook OPEN" << RES << std::endl;
 	while (option != EXIT) {
 		display_options();
 		option = get_option();
@@ -55,10 +40,10 @@ int	main() {
 				myNewPhoneBook.addContact();
 				break;
 			case SEARCH:
-			//	myNewPhoneBook.searchContact();
+				myNewPhoneBook.searchContact();
 				break;
 			case EXIT:
-				std::cout << GR << "Sayonara Baby!" << std::endl;
+				std::cout << GR << "\n\tSayonara Baby!" << RES << std::endl;
 				break;
 			default:
 				error_msg("Invalid input.");
