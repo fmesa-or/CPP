@@ -6,11 +6,25 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:24:44 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/12 14:11:26 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/13 13:55:35 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+/********************************************************
+ * This is the CONSTRUCTOR. Sets the contactCount value.*
+ *******************************************************/
+Contact::Contact(void) {
+	std::cout << "\nContact CONSTRUCTOR IS CALLED.\n" << std::endl;
+}
+
+/**************************
+ * This is the DESTRUCTOR.*
+ *************************/
+Contact::~Contact(void) {
+	std::cout << "\nContact DESTRUCTOR IS CALLED.\n" << std::endl;
+}
 
 //SETTERS
 
