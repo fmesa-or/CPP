@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombies.hpp                                        :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 13:46:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/13 15:09:05 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/13 14:59:30 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/13 15:02:56 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-#include <iostream>
-#include "utils.hpp"
-
-/* CLASSES */
-class	Zombie {
-	private:
-		std::string	_name;
-	public:
-		Zombie(std::string name);
-		~Zombie();
-		void		announce(void);
-};
-
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
+/* COLORS */
+# define GR		"\033[1;92m"
+# define RD		"\033[1;31m"
+# define CI		"\033[0;96m"
+# define IB		"\033[0;94m"
+# define YL		"\033[0;93m"
+# define PI		"\033[1;35m"
+# define IT		"\033[3m"
+# define RES	"\033[0m"
 
 #endif

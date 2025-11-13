@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:04:23 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/13 14:46:46 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:03:38 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param name The name of the zombie.                                 *
  **********************************************************************/
 Zombie::Zombie(std::string name) : _name(name) {
-	std::cout << "\n" << _name << " is rised from the dead\n" << std::endl;
+	std::cout << PI << "\n" << _name << " is rised from the dead\n" << RES << std::endl;
 }
 
 /***************************************************************
@@ -26,14 +26,14 @@ Zombie::Zombie(std::string name) : _name(name) {
  * Destroys the Zombie object and announces its return to rest.*
  **************************************************************/
 Zombie::~Zombie(void) {
-	std::cout << "\n" << _name << " got back to \"eternal\" rest\n" << std::endl;
+	std::cout << YL << "\n" << _name << " got back to eternal rest for the moment...\n" << RES << std::endl;
 }
 
 /*****************************************************
  * Gets the name of the Zombie and says zombie stuff.*
  ****************************************************/
 void	Zombie::announce() {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << IT << GR << _name << ": BraiiiiiiinnnzzzZ..." << RES <<std::endl;
 }
 
 /**********************************************************
