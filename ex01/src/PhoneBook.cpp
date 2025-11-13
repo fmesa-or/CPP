@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:03:04 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/12 14:18:44 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/13 11:25:25 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ PhoneBook::~PhoneBook(void) {
 	std::cout << "\nDESTRUCTOR IS CALLED.\n" << std::endl;
 }
 
-
+/*********************************************************************
+ * Saves //contact// inside the next position in //_contacts// array.*
+ ********************************************************************/
 void	PhoneBook::storeContact(const Contact& contact) {
 	_contacts[_contactCount % 8] = contact;
 	_contactCount++;
@@ -47,6 +49,9 @@ void	PhoneBook::addContact() {
 	storeContact(newContact);
 }
 
+/****************************
+ * Need //maxContacts// var.*
+ ***************************/
 void	PhoneBook::printContactsTable(size_t maxContacts) const {
 	size_t	i;
 
@@ -65,7 +70,9 @@ void	PhoneBook::printContactsTable(size_t maxContacts) const {
 	std::cout << "---------------------------------------------\n" << std:: endl;
 }
 
-
+/**********************************************************************
+ * Needs numeric input as //std::string// var to convert to //size_t//*
+ *********************************************************************/
 void	PhoneBook::showContactInfo(std::string line) const {
 	std::stringstream	iss(line);
 	size_t				index;

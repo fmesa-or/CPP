@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:24:31 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/12 14:21:00 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/13 11:44:41 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ size_t	get_option(void) {
 	return (option);
 }
 
-/**
- * 
- */
+/******************************************************
+ * Needs a message to print before let the user write.*
+ *****************************************************/
 std::string	get_user_input(std::string msg) {
 	std::string	line;
 
@@ -102,18 +102,20 @@ std::string	get_user_input(std::string msg) {
 	return (line);
 }
 
-/**
- * 
- */
+/***************************************************
+ * Return a string of 10 char lenght full of spaces*
+ * with //str// input right aligned inside.        *
+ **************************************************/
 std::string	format_field(const std::string& str) {
 	if (str.length() > 10)
 		return(str.substr(0, 9) + '.');
 	return (str);
 }
 
-/**
- * 
- */
+/*******************************************************
+ * Returns a std::string variable with only one        *
+ * numericar char not bigger that //maxContact// input.*
+ ******************************************************/
 std::string	get_index_input(size_t maxContacts) {
 	std::string	line;
 	size_t		index;

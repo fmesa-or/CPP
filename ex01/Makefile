@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/11 13:33:11 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/13 11:54:20 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,10 @@ CLEAN = rm -f
 
 #Sources
 SRC_DIR = src
-SRC = $(shell find $(SRC_DIR) -name "*.cpp")
+SRC = src/Contact.cpp \
+		src/PhoneBook.cpp \
+		src/Utils.cpp \
+		src/main.cpp
 
 #Objects
 OBJ_DIR = obj

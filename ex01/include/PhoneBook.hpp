@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:10:17 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/12 13:53:21 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/13 11:44:51 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 /* CLASSES*/
 class PhoneBook {
-	//if add 9th, replaces the oldest
 	private:
 		Contact	_contacts[8];
 		size_t	_contactCount;
