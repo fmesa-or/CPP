@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:04:23 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/13 15:03:38 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/14 13:02:39 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombies.hpp"
+#include "Zombie.hpp"
 
 /***********************************************************************
  * Constructor.                                                        *
@@ -34,24 +34,4 @@ Zombie::~Zombie(void) {
  ****************************************************/
 void	Zombie::announce() {
 	std::cout << IT << GR << _name << ": BraiiiiiiinnnzzzZ..." << RES <<std::endl;
-}
-
-/**********************************************************
- * Creates a new Zombie on the heap.                      *
- * Allocates a new Zombie dynamically with the given name.*
- * @param name The name of the zombie to create.          *
- * @return A pointer to the newly created Zombie object.  *
- *********************************************************/
-Zombie*	newZombie(std::string name) {
-	return new Zombie(name);
-}
-
-/************************************************************************
- * Creates a temporary zombie on the stack and makes it announce itself.*
- * The zombie is automatically destroyed when the function ends.        *
- * @param name The name of the zombie to create.                        *
- ***********************************************************************/
-void	randomChump(std::string name) {
-	Zombie	zombie(name);
-	zombie.announce();
 }

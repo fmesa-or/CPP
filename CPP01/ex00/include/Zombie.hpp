@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 13:40:11 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/14 13:03:02 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/13 13:46:07 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/14 13:09:51 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-int	main() {
-	// Stack in this scope
-	Zombie	zombie("Tontín");
-	zombie.announce();
+#include <iostream>
+#include "utils.hpp"
 
-	// Stack, in the scope of randomChump
-	randomChump("Tontón");
+/* CLASSES */
+class	Zombie {
+	private:
+		std::string	_name;
+	public:
+		Zombie(std::string name);
+		~Zombie();
+		void		announce(void);
+};
 
-	// Heap, pointer to use var in any scope
-	Zombie*	secondZombie = newZombie("Tontuno");
-	secondZombie->announce();
+/* FUNCTIONS */
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
-	// Deleted because is dynamic memory
-	delete secondZombie;
-
-	return (0);
-}
+#endif

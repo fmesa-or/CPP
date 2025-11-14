@@ -6,13 +6,13 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/14 13:03:34 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/14 13:40:44 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 #Name
-NAME = BraiiiiiiinnnzzzZ
+NAME = zombieHorde
 
 #Compile
 CC = g++
@@ -25,7 +25,7 @@ CLEAN = rm -f
 
 #Sources
 SRC_DIR = src
-SRC = src/Zombie/Zombie.cpp src/Zombie/randomChump.cpp src/Zombie/newZombie.cpp src/main.cpp
+SRC =  src/Zombie/Zombie.cpp src/Zombie/zombieHorde.cpp src/main.cpp
 
 #Objects
 OBJ_DIR = obj
@@ -51,7 +51,7 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
 	@printf "\r$(COLOR_INFO)Building $(NAME)... [%s]$(COLOR_RESET)" $(notdir $<)
-	@$(CC) $(CPPFLAGS) -c $< -o $@ $(HEADERS)
+	@$(CC) $(CPPFLAGS) $(HEADERS) -c $< -o $@
 
 
 clean:

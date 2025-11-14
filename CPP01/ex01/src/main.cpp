@@ -5,27 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 13:40:11 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/14 13:03:02 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/14 12:40:49 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/14 14:06:09 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int	main() {
-	// Stack in this scope
-	Zombie	zombie("Tontín");
-	zombie.announce();
+	Zombie*	horde;
+	int		n = 10;
+	std::string	name = "Peztozo";
 
-	// Stack, in the scope of randomChump
-	randomChump("Tontón");
+	if (n > 0) {
+		horde = zombieHorde(n, name);
 
-	// Heap, pointer to use var in any scope
-	Zombie*	secondZombie = newZombie("Tontuno");
-	secondZombie->announce();
+		for (int i = 0; i < n; i++)
+			horde->annouce(i);
 
-	// Deleted because is dynamic memory
-	delete secondZombie;
-
-	return (0);
+		delete[] horde;
+	}
+	return 0;
 }
