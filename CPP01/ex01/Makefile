@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/14 13:40:44 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/18 17:52:14 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME = zombieHorde
 
 #Compile
-CC = g++
+CC = c++
 
 #Flags
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic

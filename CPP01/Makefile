@@ -6,13 +6,13 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/18 17:52:10 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/18 18:17:25 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 #Name
-NAME = hiThisIsBrain
+NAME = sedIsForLosers
 
 #Compile
 CC = c++
