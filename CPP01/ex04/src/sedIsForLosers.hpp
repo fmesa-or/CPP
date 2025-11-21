@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   sedIsForLosers.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 20:28:56 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/21 12:36:44 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/21 12:37:01 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/21 12:44:04 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sedIsForLosers.hpp"
 
-int	main(int argc, char **argv) {
-	if (argc != 4) {
-		std::cerr << "Error: Bad input.\tInput needed: filename, string 1 and string 2" << std::endl;
-		return 1;
+std::string	readFileContent(const std::string filename) {
+	std::ifstream	file(filename.c_str());
+
+	if (!file.is_open())
+		throw std::runtime_error("Error: fail to open " + filename);
+
+	if (file.is_open()) {
+		std::string	line;
+		while (std::getline(file, line)) {
+
+		}
+		file.close();
 	}
-	
-	const std::string	filename = argv[1];
-	const std::string	s1 = argv[2];
-	const std::string	s2 = argv[3];
-
-	std::string	file_content = readFileContent(filename);
-	replaceFileContent(file_content, s1, s2);
-	writeFileContent(filename + ".replece", file_content);
-
-	return 0;
+	return ();
 }
