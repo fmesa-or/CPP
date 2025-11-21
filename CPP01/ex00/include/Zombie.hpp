@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:46:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/14 13:09:51 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:29:28 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class	Zombie {
 	private:
 		std::string	_name;
 	public:
+		Zombie();
+		Zombie(const char *name);
 		Zombie(std::string name);
 		~Zombie();
 		void		announce(void);

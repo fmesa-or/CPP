@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 12:32:27 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/18 18:05:11 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:19:58 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	Weapon {
 	private:
 		std::string	_type;
 	public:
+		Weapon(void);
 		Weapon(std::string newType);
 		~Weapon(void);
 		const std::string&	getType(void) const;
