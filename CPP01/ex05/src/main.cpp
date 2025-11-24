@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 14:59:30 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/24 12:17:34 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/24 11:41:18 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/24 12:05:49 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#include "Harl.hpp"
 
-#include <iostream>
+int	main() {
+	Harl	harl;
 
-/* COLORS */
-# define GR		"\033[1;92m"
-# define RD		"\033[1;31m"
-# define CI		"\033[0;96m"
-# define IB		"\033[0;94m"
-# define YL		"\033[0;93m"
-# define PI		"\033[1;35m"
-# define IT		"\033[3m"
-# define RES	"\033[0m"
-
-#endif
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("ASWANDA");
+	return 0;
+}

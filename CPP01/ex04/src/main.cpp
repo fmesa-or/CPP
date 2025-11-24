@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 20:28:56 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/21 12:36:44 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:44:49 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv) {
 
 	std::string	file_content = readFileContent(filename);
 	replaceFileContent(file_content, s1, s2);
-	writeFileContent(filename + ".replece", file_content);
+	writeFileContent(filename + ".replace", file_content);
 
 	return 0;
 }

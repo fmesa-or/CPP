@@ -6,13 +6,13 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/24 12:45:10 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/11/24 11:20:19 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 #Name
-NAME = sedIsForLosers
+NAME = Harl
 
 #Compile
 CC = c++
@@ -25,7 +25,7 @@ CLEAN = rm -f
 
 #Sources
 SRC_DIR = src
-SRC =  src/main.cpp src/sedIsForLosers.cpp
+SRC =  src/main.cpp src/Harl.cpp
 
 #Objects
 OBJ_DIR = obj
@@ -62,7 +62,6 @@ clean:
 fclean: clean
 	@printf "$(COLOR_INFO)Deleting $(NAME)...$(COLOR_RESET)"
 	@$(CLEAN) $(NAME)
-	@$(CLEAN) *.replace
 	@printf "\r$(COLOR_SUCCESS)✅ $(NAME) deleted successfully!$(COLOR_RESET)\n"
 
 re: fclean $(NAME)

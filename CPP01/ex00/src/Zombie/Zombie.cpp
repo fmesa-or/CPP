@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:04:23 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/21 13:33:28 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:11:18 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ Zombie::~Zombie(void) {
 /*****************************************************
  * Gets the name of the Zombie and says zombie stuff.*
  ****************************************************/
-void	Zombie::announce() {
+void	Zombie::announce(void) {
 	std::cout << IT << GR << _name << ": BraiiiiiiinnnzzzZ..." << RES <<std::endl;
 }
