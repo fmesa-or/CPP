@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 12:37:01 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/24 12:39:48 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:57:35 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ std::string	readFileContent(const std::string& filename) {
  * substitudes it with @param s2.                                         *
  *************************************************************************/
 void	replaceFileContent(std::string& file_content, const std::string& s1, const std::string& s2) {
-	if (s1.empty() || s2.empty())
+	if (s1.empty())
 		return ;
 	
 	size_t	init_pos = 0;

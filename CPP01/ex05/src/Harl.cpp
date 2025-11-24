@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:25:44 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/24 12:49:22 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/24 13:04:28 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Harl::~Harl(void) {
  * Used for debugging information about bacon preferences.        *
  *****************************************************************/
 void	Harl::debug(void) {
-	std::cout << YL
+	std::cout << YL << IT
 		<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger."
 		<< " I really do!"
 		<< RES << std::endl;
@@ -48,7 +48,7 @@ void	Harl::debug(void) {
  * Used for informational complaints about bacon pricing.         *
  *****************************************************************/
 void	Harl::info(void) {
-	std::cout << IB
+	std::cout << IB << IT
 	<< "I cannot believe adding extra bacon costs more money."
 	<< "You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!"
 	<< RES << std::endl;
@@ -59,7 +59,7 @@ void	Harl::info(void) {
  * Used for warning about deserving free bacon.                   *
  *****************************************************************/
 void	Harl::warning(void) {
-	std::cout << PI
+	std::cout << PI << IT
 		<< "I think I deserve to have some extra bacon for free."
 		<< "I've been coming for years, whereas you started working here just last month."
 		<< RES << std::endl;
@@ -99,9 +99,8 @@ void	Harl::complain( std::string level) {
 		}
 	}
 
-	std::cout << IT << RD
-		<< "No valid level: "
-		<< level
-		<< "\tTry DEBUG, INFO, WARNING or ERROR"
+	std::cout << RD
+		<< "\nError:\nInvalid level: "<< level << " didn't exist ass an option."
+		<< "\nTry DEBUG, INFO, WARNING or ERROR\n"
 		<< RES << std::endl;
 }
