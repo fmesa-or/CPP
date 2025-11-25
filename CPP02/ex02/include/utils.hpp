@@ -5,13 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 14:59:30 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/25 13:04:57 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/24 14:09:20 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/25 13:14:46 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_HPP
 #define UTILS_HPP
+
+#include <iostream>
+#include <cmath>
 
 /* COLORS */
 # define GR		"\033[1;92m"

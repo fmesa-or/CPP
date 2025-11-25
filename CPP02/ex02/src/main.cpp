@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 14:59:30 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/25 13:04:57 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/25 13:57:16 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/25 13:58:30 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#include ""
 
-/* COLORS */
-# define GR		"\033[1;92m"
-# define RD		"\033[1;31m"
-# define CI		"\033[0;96m"
-# define IB		"\033[0;94m"
-# define YL		"\033[0;93m"
-# define PI		"\033[1;35m"
-# define IT		"\033[3m"
-# define RES	"\033[0m"
+int	main() {
 
-#endif
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max( a, b ) << std::endl;
+
+	return 0;
+}

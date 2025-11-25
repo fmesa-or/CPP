@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 13:40:26 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/25 14:05:29 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/25 12:57:36 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/25 14:05:17 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@ class	Fixed {
 	private:
 		int					_fixedPointNumber;
 		static const int	_fractionalBits = 8;
-
 	public:
-		Fixed(void);							// Default builder
-		Fixed(const Fixed& other);				// Copy Builder
-		Fixed& operator=(const Fixed& other);	// Copy Assignment operator overload
-		~Fixed(void);							// Destructor
+		Fixed(void);
+		Fixed(const int num);
+		Fixed(const float num);
+		Fixed(const Fixed& other);
+		Fixed& operator=(const Fixed& other);
+		~Fixed(void);
 
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+std::ostream	&operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
