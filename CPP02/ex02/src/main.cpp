@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:57:16 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/28 12:43:21 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:25:12 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,24 @@ int	main(void) {
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	Fixed c( Fixed(10.5f) * Fixed(2.0f));
-//	std::cout << a << std::endl;
-//	std::cout << ++a << std::endl;
-//	std::cout << a << std::endl;
-//	std::cout << a++ << std::endl;
-//	std::cout << a << std::endl;
+	std::cout << "a = 0 -> a = " << a << std::endl;
+	std::cout << "++a = 1 -> a = " << ++a << std::endl;
+	std::cout << "a = 1 -> a = " << a << '\n' << std::endl;
 
-	std::cout << c << std::endl;
+	std::cout << "--a = 0 -> a = " << --a << std::endl;
+	std::cout << "a = 0 -> a = " << a << '\n' << std::endl;
+
+	std::cout << "--a = -1 -> a = " << --a << std::endl;
+	std::cout << "a = -1 -> a = " << a << '\n' << std::endl;
+
+	std::cout << "a++ = -1 -> a = " << a++ << std::endl;
+	std::cout << "a = 0 -> a = " << a << '\n' << std::endl;
+
+	std::cout << "a-- = 0 -> a = " << a-- << std::endl;
+	std::cout << "a = -1 -> a = " << a << '\n' << std::endl;
+
+
+//	std::cout << c << std::endl;
 
 //	std::cout << Fixed::max( a, b ) << std::endl;
 

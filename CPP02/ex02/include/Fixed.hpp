@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:58:38 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/25 14:40:17 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:26:06 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ class	Fixed {
 		Fixed				operator/(const Fixed& other) const;
 
 		/* INCREMENT/DECREMENT OPERATORS */
-//		Fixed				&operator++(void);
-//		Fixed				&operator--(void);
-//		Fixed				operator++(int);
-//		Fixed				operator--(int);
+		Fixed				&operator++(void);
+		Fixed				&operator--(void);
+		Fixed				operator++(int);
+		Fixed				operator--(int);
 
 		/* OVERLOADED MEMBER FUNCTIONS */
 //		static Fixed		&min(Fixed& a, Fixed& b);
