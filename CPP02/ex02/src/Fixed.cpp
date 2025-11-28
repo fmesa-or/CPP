@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 14:19:49 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/25 14:40:03 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/28 12:38:25 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,33 +69,37 @@ bool	Fixed::operator>(const Fixed& other) const {
 
 
 bool	Fixed::operator<(const Fixed& other) const {
-		return (_fixedPointNumber < other._fixedPointNumbr);
+		return (_fixedPointNumber < other._fixedPointNumber);
 }
 
 bool	Fixed::operator>=(const Fixed& other) const {
 	return (_fixedPointNumber >= other._fixedPointNumber);
 }
 
-bool	operator<=(const Fixed& other) const {
+bool	Fixed::operator<=(const Fixed& other) const {
 	return (_fixedPointNumber <= other._fixedPointNumber);
 }
 
-bool	operator==(const Fixed& other) const {
+bool	Fixed::operator==(const Fixed& other) const {
 	return (_fixedPointNumber == other._fixedPointNumber);
 }
 
-bool	operator!=(const Fixed& other) const {
+bool	Fixed::operator!=(const Fixed& other) const {
 	return (_fixedPointNumber != other._fixedPointNumber);
 }
 
 /* ARITHMETIC OPERATORS */
 
 Fixed	Fixed::operator+(const Fixed& other) const {
-	return Fixed(_fixedPointNumber + other._fixedPointNumber);
+	Fixed result;
+	result._fixedPointNumber = _fixedPointNumber + other._fixedPointNumber;
+	return result;
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const {
-	return Fixed(_fixedPointNumber - other._fixedPointNumber);
+	Fixed result;
+	result._fixedPointNumber = _fixedPointNumber - other._fixedPointNumber;
+	return result;
 }
 
 Fixed	Fixed::operator/(const Fixed& other) const {
@@ -103,36 +107,12 @@ Fixed	Fixed::operator/(const Fixed& other) const {
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const {
-	return Fixed(_fixedPointNumber * other._fixedPointNumber);
-}
+	Fixed result;
+	result._fixedPointNumber = (_fixedPointNumber * other._fixedPointNumber) >> _fractionalBits;
+	return result;}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* CONVERTERS */
 /************************
  * Casts value to Float.*
  ***********************/
@@ -146,6 +126,8 @@ float	Fixed::toFloat(void) const {
 int	Fixed::toInt(void) const {
 	return _fixedPointNumber / (1 << _fractionalBits);
 }
+
+/* FUNCTIONS */
 
 /************************************************************************
  * Overloads the insertion operator (<<) for std::ostream compatibility.*
