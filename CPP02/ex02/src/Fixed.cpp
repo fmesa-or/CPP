@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 14:19:49 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/28 14:26:12 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/01 12:38:47 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Fixed::Fixed(const float num) {
  * Destructor.*
  *************/
 Fixed::~Fixed(void) {
-	std::cout << GR << "Destructor called" << RES << std::endl;
+//	std::cout << GR << "Destructor called" << RES << std::endl;
 }
 
 /************************
@@ -103,7 +103,9 @@ Fixed	Fixed::operator-(const Fixed& other) const {
 }
 
 Fixed	Fixed::operator/(const Fixed& other) const {
-	return Fixed(_fixedPointNumber / other._fixedPointNumber);
+	Fixed result;
+	result._fixedPointNumber = (_fixedPointNumber << _fractionalBits) / other._fixedPointNumber;
+	return result;
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const {
@@ -115,32 +117,44 @@ Fixed	Fixed::operator*(const Fixed& other) const {
 /* INCREMENT/DECREMENT OPERATORS */
 
 Fixed	&Fixed::operator++(void) {
-	_fixedPointNumber += 1 << _fractionalBits;
+	_fixedPointNumber += 1;
 	return *this;
 }
 
 Fixed	&Fixed::operator--(void) {
-	_fixedPointNumber -= 1 << _fractionalBits;
+	_fixedPointNumber -= 1;
 	return *this;
 }
 
 Fixed	Fixed::operator++(int) {
 	Fixed	result(*this);
-	_fixedPointNumber += 1 << _fractionalBits;
+	_fixedPointNumber += 1;
 	return result;
 }
 
 Fixed	Fixed::operator--(int) {
 	Fixed	result(*this);
-	_fixedPointNumber -= 1 << _fractionalBits;
+	_fixedPointNumber -= 1;
 	return result;
 }
 
 /* OVERLOADED MEMBER FUNCTIONS */
 
-//static Fixed		&min(Fixed& a, Fixed& b) {}
+Fixed&	Fixed::min(Fixed& a, Fixed& b) {
+	return (a._fixedPointNumber < b._fixedPointNumber) ? a : b;
+}
 
+Fixed&	Fixed::max(Fixed& a, Fixed& b) {
+	return (a._fixedPointNumber > b._fixedPointNumber) ? a : b;
+}
 
+const Fixed&	Fixed::min(const Fixed& a, const Fixed& b) {
+	return (a._fixedPointNumber < b._fixedPointNumber) ? a : b;
+}
+
+const Fixed&	Fixed::max(const Fixed& a, const Fixed& b) {
+	return (a._fixedPointNumber > b._fixedPointNumber) ? a:b;
+}
 
 /* CONVERTERS */
 /************************

@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:58:38 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/28 14:26:06 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/01 11:52:26 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ class	Fixed {
 		Fixed				operator--(int);
 
 		/* OVERLOADED MEMBER FUNCTIONS */
-//		static Fixed		&min(Fixed& a, Fixed& b);
-//		static const Fixed	&min(const Fixed& a, const Fixed& b);
-//		static Fixed		&max(Fixed& a, Fixed& b);
-//		static const Fixed	&max(const Fixed& a, const Fixed& b);
+		static Fixed		&min(Fixed& a, Fixed& b);
+		static Fixed		&max(Fixed& a, Fixed& b);
+		static const Fixed	&min(const Fixed& a, const Fixed& b);
+		static const Fixed	&max(const Fixed& a, const Fixed& b);
 
 		/* CONVERTERS */
 		float				toFloat(void) const;
