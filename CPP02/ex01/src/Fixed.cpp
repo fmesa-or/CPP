@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 12:59:50 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/25 14:28:56 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:55:45 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ Fixed::Fixed(const Fixed& other) : _fixedPointNumber(other._fixedPointNumber) {
 	*this = other;
 }
 
-/************************
- * Assignament operator.*
- ***********************/
+/***********************
+ * Assignment operator.*
+ **********************/
 Fixed& Fixed::operator=(const Fixed& other) {
 	std::cout << CI IT << "Copy assignment operator called" << RES << std::endl;
 	if (this != &other) {

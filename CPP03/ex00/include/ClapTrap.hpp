@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 13:06:04 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/01 13:24:15 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/02 13:18:29 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,16 @@ class	ClapTrap {
 		ClapTrap();
 		ClapTrap(std::string newName);
 		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+
+		bool			checkState(std::string action, bool flag);
+		unsigned int	getDamage();
+		void			setDamage(unsigned int newDamage);
 };
 
 #endif
