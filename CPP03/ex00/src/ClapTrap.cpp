@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 13:15:51 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/02 14:42:05 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/02 14:47:16 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ void	ClapTrap::attack(const std::string& target) {
 			<< RES << std::endl;
 }
 
-/*********************************************************
+/******************************************************************************
  * Checks state (but not the energy), print attack message and reduces energy.*
- ********************************************************/
+ *****************************************************************************/
 void	ClapTrap::takeDamage(unsigned int amount) {
 	if (!this->checkState("Take damage", false))
 		return ;
@@ -119,6 +119,9 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 
 }
 
+/********************************************************************
+ * Checks state, adds hit points, prints message and reduces energy.*
+ *******************************************************************/
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (!this->checkState("Repair", true))
 		return ;
@@ -134,10 +137,16 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 			<< RES << std::endl;
 }
 
+/***********************************
+ * Getter for @param _attackDamage *
+ **********************************/
 unsigned int	ClapTrap::getDamage(void) {
 	return _attackDamage;
 }
 
+/***************************************************
+ * Prints message and changes @param _attackDamage *
+ **************************************************/
 void	ClapTrap::setDamage(unsigned int newDamage) {
 	std::cout << PI
 		<< _name << " attack damage has change from " << _attackDamage << " to " << newDamage << "."
