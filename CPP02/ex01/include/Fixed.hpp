@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 13:46:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/24 12:11:07 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/25 12:57:36 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/25 14:05:17 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#include <iostream>
 #include "utils.hpp"
 
-/* CLASSES */
-class	Zombie {
+class	Fixed {
 	private:
-		std::string	_name;
+		int					_fixedPointNumber;
+		static const int	_fractionalBits = 8;
 	public:
-		Zombie();
-		Zombie(const char *name);
-		Zombie(std::string name);
-		~Zombie();
+		Fixed(void);
+		Fixed(const int num);
+		Fixed(const float num);
+		Fixed(const Fixed& other);
+		Fixed& operator=(const Fixed& other);
+		~Fixed(void);
 
-		void	announce(void);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
 
-/* FUNCTIONS */
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
+std::ostream	&operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif

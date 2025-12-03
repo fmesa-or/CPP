@@ -6,13 +6,13 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/11/25 12:17:08 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/12/02 12:43:59 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 #Name
-NAME = BraiiiiiiinnnzzzZ
+NAME = clapTrapsWars.out
 
 #Compile
 CC = c++
@@ -25,7 +25,7 @@ CLEAN = rm -f
 
 #Sources
 SRC_DIR = src
-SRC = src/Zombie/Zombie.cpp src/Zombie/randomChump.cpp src/Zombie/newZombie.cpp src/main.cpp
+SRC = src/main.cpp src/ClapTrap.cpp
 
 #Objects
 OBJ_DIR = obj

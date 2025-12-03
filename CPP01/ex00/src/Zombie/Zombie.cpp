@@ -6,11 +6,25 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:04:23 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/14 13:02:39 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:11:18 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+/***************
+ * Constructor.*
+ **************/
+Zombie::Zombie(void) {
+	std::cout << PI << "\n" << "Unnamed is rised from the dead\n" << RES << std::endl;
+}
+
+/************************
+ * Constructor for NULL *
+ ***********************/
+Zombie::Zombie(const char *name) : _name((name ? name : "unnamed")) {
+	std::cout << PI << "\n" << _name << " is rised from the dead\n" << RES << std::endl;
+}
 
 /***********************************************************************
  * Constructor.                                                        *
@@ -32,6 +46,6 @@ Zombie::~Zombie(void) {
 /*****************************************************
  * Gets the name of the Zombie and says zombie stuff.*
  ****************************************************/
-void	Zombie::announce() {
+void	Zombie::announce(void) {
 	std::cout << IT << GR << _name << ": BraiiiiiiinnnzzzZ..." << RES <<std::endl;
 }

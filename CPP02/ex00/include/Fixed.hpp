@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 13:46:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/24 12:11:07 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/24 13:40:26 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/25 14:05:29 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#include <iostream>
 #include "utils.hpp"
 
-/* CLASSES */
-class	Zombie {
+class	Fixed {
 	private:
-		std::string	_name;
+		int					_fixedPointNumber;
+		static const int	_fractionalBits = 8;
+
 	public:
-		Zombie();
-		Zombie(const char *name);
-		Zombie(std::string name);
-		~Zombie();
+		Fixed(void);							// Default builder
+		Fixed(const Fixed& other);				// Copy Builder
+		Fixed& operator=(const Fixed& other);	// Copy Assignment operator overload
+		~Fixed(void);							// Destructor
 
-		void	announce(void);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 };
-
-/* FUNCTIONS */
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
 
 #endif

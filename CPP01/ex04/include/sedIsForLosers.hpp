@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   sedIsForLosers.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 14:59:30 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/24 12:17:34 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/19 11:25:25 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/11/21 14:58:51 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#ifndef SEDISFORLOSERS_HPP
+#define SEDISFORLOSERS_HPP
 
 #include <iostream>
+#include <fstream>
 
-/* COLORS */
-# define GR		"\033[1;92m"
-# define RD		"\033[1;31m"
-# define CI		"\033[0;96m"
-# define IB		"\033[0;94m"
-# define YL		"\033[0;93m"
-# define PI		"\033[1;35m"
-# define IT		"\033[3m"
-# define RES	"\033[0m"
+/* FUNCTIONS */
+std::string	readFileContent(const std::string& filename);
+void		replaceFileContent(std::string& file_content, const std::string& s1,
+				const std::string& s2);
+void		writeFileContent(const std::string& filename, const std::string& file_content);
 
 #endif

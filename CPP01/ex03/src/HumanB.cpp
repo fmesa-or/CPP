@@ -6,11 +6,19 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:16:49 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/11/18 18:14:38 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:23:03 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
+
+/***************
+ * Constructor.*
+ **************/
+HumanB::HumanB() {
+	_name = "unnamed";
+	std::cout << GR << _name << " the humanB was created." << RES << std::endl;
+}
 
 /*********************************************************************
  * Creates HumanB object.                                            *
