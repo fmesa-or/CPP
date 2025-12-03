@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 13:06:04 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/03 12:49:46 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:33:00 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "utils.hpp"
 
 class	ClapTrap {
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
