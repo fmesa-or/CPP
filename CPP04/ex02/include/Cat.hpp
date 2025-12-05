@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 11:38:31 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 14:22:05 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/12/04 13:36:15 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/12/05 12:05:01 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "utils.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Brain {
+class Cat : public Animal {
 	private:
-		std::string	ideas[100];
+		Brain*	_greymass;
 	public:
-		Brain(void);
-		Brain(const Brain& other);
-		Brain& operator=(const Brain& other);
-		~Brain(void);
+		Cat(void);
+		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
+		~Cat(void);
+
+		void	makeSound(void) const;
 };
 
 #endif

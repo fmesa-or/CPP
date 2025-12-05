@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 11:38:31 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 14:22:05 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/12/04 13:34:45 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/12/05 12:04:57 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include "utils.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Brain {
+class Dog : public Animal {
 	private:
-		std::string	ideas[100];
+		Brain*	_greymass;
 	public:
-		Brain(void);
-		Brain(const Brain& other);
-		Brain& operator=(const Brain& other);
-		~Brain(void);
+		Dog(void);
+		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
+		~Dog(void);
+
+		void	makeSound(void) const;
 };
 
 #endif

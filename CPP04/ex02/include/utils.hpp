@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 11:38:31 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 14:22:05 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/24 14:09:20 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/12/01 13:10:44 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-#include "utils.hpp"
+#include <iostream>
 
-class Brain {
-	private:
-		std::string	ideas[100];
-	public:
-		Brain(void);
-		Brain(const Brain& other);
-		Brain& operator=(const Brain& other);
-		~Brain(void);
-};
+/* COLORS */
+# define GR		"\033[1;92m"
+# define RD		"\033[1;31m"
+# define CI		"\033[0;96m"
+# define IB		"\033[0;94m"
+# define YL		"\033[0;93m"
+# define PI		"\033[1;35m"
+# define IT		"\033[3m"
+# define RES	"\033[0m"
 
 #endif

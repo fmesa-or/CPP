@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:45:56 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 12:56:20 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/05 14:42:15 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Cat::Cat(void) : Animal("Cat") {
 Cat::Cat(const Cat& other) : Animal(other) {
 	this->type = other.type;
 	std::cout << GR
-		<< "Cat: Copy constructor called: " << IT << "Look at this cat! Is very similar to this" << this->type
+		<< "Cat: Copy constructor called: " << IT << "Look at this cat! Is very similar to this " << this->type
 		<< RES << std::endl;
 }
 

@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/12/05 11:45:20 by fmesa-or         ###   ########.fr        #
+#    Updated: 2025/12/05 14:21:43 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,13 @@ CLEAN = rm -f
 
 #Sources
 SRC_DIR = src
-SRC =	src/main.cpp 
-		\ src/Animal.cpp 
-		\ src/Dog.cpp 
-		\ src/Cat.cpp 
-		\ src/WrongAnimal.cpp 
-		\ src/WrongCat.cpp 
-		\ src/Brain.cpp
+SRC =	src/main.cpp \
+		src/Animal.cpp \
+		src/Dog.cpp \
+		src/Cat.cpp \
+		src/WrongAnimal.cpp \
+		src/WrongCat.cpp \
+		src/Brain.cpp
 
 #Objects
 OBJ_DIR = obj

@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 11:21:44 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 11:23:37 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/05 14:42:30 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
 	this->type = other.type;
 	std::cout << GR
-		<< "WrongCat: Copy constructor called: " << IT "Look at this cat! Is very similira to this" << this->type
+		<< "WrongCat: Copy constructor called: " << IT "Look at this cat! Is very similira to this " << this->type
 		<< RES << std::endl;
 }
 
