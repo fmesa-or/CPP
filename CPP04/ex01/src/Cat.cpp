@@ -1,58 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 14:14:02 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 12:56:14 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/12/04 14:45:56 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/12/05 13:00:24 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 /***********************
  * Default constructor.*
  **********************/
-Dog::Dog(void) : Animal("Dog") {
+Cat::Cat(void) : Animal("Cat") {
+	_greymass = new Brain();
 	std::cout << GR
-		<< "Dog: Default consturctor called: " << IT << "Look at this " << this->type
+		<< "Cat: Default consturctor called: " << IT << "Look at this " << this->type
 		<< RES << std::endl;
 }
 
 /********************
  * Copy constructor.*
  *******************/
-Dog::Dog(const Dog& other) : Animal(other) {
+Cat::Cat(const Cat& other) : Animal(other) {
 	this->type = other.type;
+	_greymass = new Brain(*other._greymass);
 	std::cout << GR
-		<< "Dog: Copy constructor called: " << IT << "Look at this dog! Is very similar to this" << this->type
+		<< "Cat: Copy constructor called: " << IT << "Look at this cat! Is very similar to this" << this->type
 		<< RES << std::endl;
 }
 
 /***********************
  * Assignment operator.*
  **********************/
-Dog& Dog::operator=(const Dog& other) {
-	if (this != &other)
+Cat& Cat::operator=(const Cat& other) {
+	if (this != &other) {
 		this->type = other.type;
-	std::cout << YL << "Dog: Copy assignment operator called" << RES << std::endl;
+		delete _greymass;
+		_greymass = new Brain(*other._greymass);
+	}
+	std::cout << YL << "Cat: Copy assignment operator called" << RES << std::endl;
 	return *this;
 }
 
 /**************
  * Destructor.*
  *************/
-Dog::~Dog(void) {
-	std::cout << GR << "Dog: Destructor called. Bye bye " << this->type << RES << std::endl;
+Cat::~Cat(void) {
+	delete _greymass;
+	std::cout << GR << "Cat: Destructor called. Bye bye " << this->type << RES << std::endl;
 }
 
 /*************************
  * Overrides makeSound().*
  ************************/
-void	Dog::makeSound(void) const {
+void	Cat::makeSound(void) const {
 		std::cout << CI
-			<< type << " makes his sound: " << IT << "BARK BARK!!"
+			<< type << " makes his sound: " << IT << "MEOW MEOW!!"
 			<< RES << std::endl;
 }

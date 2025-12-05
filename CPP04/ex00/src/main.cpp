@@ -6,13 +6,15 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 13:22:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/04 15:16:38 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/05 11:34:12 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main(void) {
 
@@ -101,6 +103,39 @@ int	main(void) {
 	Animal customAnimal("CustomType");
 	std::cout << "Custom Animal type: " << customAnimal.getType() << " - Sound: ";
 	customAnimal.makeSound();
+
+	std::cout << "\n=== Test 9: WrongAnimal y WrongCat (sin polimorfismo correcto) ===" << std::endl;
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+	
+	std::cout << "WrongAnimal type: " << wrongMeta->getType() << " - Sound: ";
+	wrongMeta->makeSound();
+	std::cout << "WrongCat type: " << wrongCat->getType() << " - Sound: ";
+	wrongCat->makeSound(); // Debería llamar a WrongAnimal::makeSound() en lugar de WrongCat::makeSound()
+	
+	std::cout << "\n=== Test 10: Comparación con Cat correcto ===" << std::endl;
+	const Animal* correctCat = new Cat();
+	std::cout << "Cat (correcto) type: " << correctCat->getType() << " - Sound: ";
+	correctCat->makeSound(); // Debería llamar correctamente a Cat::makeSound()
+	
+	std::cout << "\n=== Test 11: Limpieza WrongAnimal y WrongCat ===" << std::endl;
+	delete wrongMeta;
+	delete wrongCat;
+	delete correctCat;
+
+	std::cout << "\n=== Test 12: WrongCat en stack ===" << std::endl;
+	{
+		WrongAnimal wrongAnimal;
+		WrongCat wrongCatStack;
+		
+		std::cout << "WrongAnimal type: " << wrongAnimal.getType() << " - Sound: ";
+		wrongAnimal.makeSound();
+		std::cout << "WrongCat type: " << wrongCatStack.getType() << " - Sound: ";
+		wrongCatStack.makeSound();
+		
+		std::cout << "Saliendo del scope (destructores WrongAnimal)..." << std::endl;
+	}
+	std::cout << "Scope WrongAnimal finalizado." << std::endl;
 
 	std::cout << "\n=== Todos los tests completados ===" << std::endl;
 

@@ -1,58 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 14:14:02 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/05 12:56:14 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/12/05 11:21:44 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/12/05 11:23:37 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 /***********************
  * Default constructor.*
  **********************/
-Dog::Dog(void) : Animal("Dog") {
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
 	std::cout << GR
-		<< "Dog: Default consturctor called: " << IT << "Look at this " << this->type
+		<< "WrongCat: Default consturctor called: " << IT << "Look at this " << this->type
 		<< RES << std::endl;
 }
 
 /********************
  * Copy constructor.*
  *******************/
-Dog::Dog(const Dog& other) : Animal(other) {
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
 	this->type = other.type;
 	std::cout << GR
-		<< "Dog: Copy constructor called: " << IT << "Look at this dog! Is very similar to this" << this->type
+		<< "WrongCat: Copy constructor called: " << IT "Look at this cat! Is very similira to this" << this->type
 		<< RES << std::endl;
 }
 
 /***********************
  * Assignment operator.*
  **********************/
-Dog& Dog::operator=(const Dog& other) {
+WrongCat& WrongCat::operator=(const WrongCat& other) {
 	if (this != &other)
 		this->type = other.type;
-	std::cout << YL << "Dog: Copy assignment operator called" << RES << std::endl;
+	std::cout << YL << "WrongCat: Copy assignment operator called" << RES << std::endl;
 	return *this;
 }
 
 /**************
  * Destructor.*
  *************/
-Dog::~Dog(void) {
-	std::cout << GR << "Dog: Destructor called. Bye bye " << this->type << RES << std::endl;
+WrongCat::~WrongCat(void) {
+	std::cout << GR << "WrongCat: Destructor called. Bye bye " << this->type << RES << std::endl;
 }
 
 /*************************
  * Overrides makeSound().*
  ************************/
-void	Dog::makeSound(void) const {
+void	WrongCat::makeSound(void) const {
 		std::cout << CI
-			<< type << " makes his sound: " << IT << "BARK BARK!!"
+			<< type << " makes his sound: " << IT << "GOOD EVENING FELLAS!!"
 			<< RES << std::endl;
 }
