@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 13:31:15 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/04 15:10:16 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2025/12/08 22:15:50 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal {
 		Animal& operator=(const Animal& other);
 		virtual	~Animal(void);
 
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 		std::string		getType(void) const;
 };
 
