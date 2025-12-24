@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 17:50:12 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/11 14:37:02 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/12/23 12:51:28 by fmesa-or          #+#    #+#             */
+/*   Updated: 2025/12/23 13:14:59 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-int	main(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	j = -1;
-	(void)argv;
-	if (argc < 2)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-	else if (argc > 1 && argv)
-	{
-		while (i < argc)
-		{
-			while (argv[i][++j])
-				std::cout << (char)std::toupper(argv[i][j]);
-			std::cout << " ";
-			i++;
-			j = -1;
-		}
-		std::cout << std::endl;
+int	main(void) {
+	try {
+		Bureaucrat example("Pepín", 123);
+		std::cout << example.getName() << " has a grade of " << example.getGrade() << std::endl;
+		example.setGrade(13);
+		example.setGrade(0);
+		std::cout << example << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
-	return (0);
 }
