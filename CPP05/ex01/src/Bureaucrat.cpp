@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:16:19 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/14 14:54:17 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/14 15:00:56 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,14 +168,12 @@ std::ostream	&operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 }
 
 // METHODS
-/**
- * signForm();
- * 
- * calls Form::beSigned()
- * 
- * Prints if true -> <bureaucrat> signed <form>
- * Prints if false -> <bureaucrat> couldn’t sign <form> because <reason>.
- */
+/*****************************************************************************
+ * Calls Form::beSigned()                                                    *
+ *                                                                           *
+ * Prints if could signs -> <bureaucrat> signed <form>                       *
+ * Prints if couldn't. -> <bureaucrat> couldn’t sign <form> because <reason>.*
+ ****************************************************************************/
 void	Bureaucrat::signForm(Form& form) const {
 	try {
 		form.beSigned(*this);
