@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2025/12/24 13:58:40 by fmesa-or         ###   ########.fr        #
+#    Updated: 2026/02/14 14:17:02 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ CLEAN = rm -f
 #Sources
 SRC_DIR = src
 SRC =	src/main.cpp \
-		src/Bureaucrat.cpp
+		src/Bureaucrat.cpp \
+		src/Form.cpp
 
 #Objects
 OBJ_DIR = obj
