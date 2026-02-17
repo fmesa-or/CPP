@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 12:10:03 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/14 14:53:36 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:41:51 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Form::Form(void) : _name("undefined"), _isSigned(false), _gradeToSign(150), _gra
 		<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << std::endl;
 }
 
-/***************************
- * Char pointer construcotr*
- **************************/
+/*************************
+ * Constructor with input*
+ ************************/
 Form::Form(std::string name, const unsigned int gradeToSign, const unsigned int gradeToExecute) 
 : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 		if (gradeToSign < 1 || gradeToExecute < 1)

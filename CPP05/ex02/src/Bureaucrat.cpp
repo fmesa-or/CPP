@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:16:19 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/14 15:21:20 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:36:32 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void	Bureaucrat::decrementGrade(unsigned int n) {
 		_grade += n;
 }
 
-//OPERATOR
+// OPERATOR
 /**************************************************************************
  * Prints a defined message when try to use the full object in a std::cout*
  *************************************************************************/
@@ -169,12 +169,12 @@ std::ostream	&operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 
 // METHODS
 /*****************************************************************************
- * Calls Form::beSigned()                                                    *
+ * Calls AForm::beSigned()                                                    *
  *                                                                           *
  * Prints if could signs -> <bureaucrat> signed <form>                       *
  * Prints if couldn't. -> <bureaucrat> couldn’t sign <form> because <reason>.*
  ****************************************************************************/
-void	Bureaucrat::signForm(Form& form) const {
+void	Bureaucrat::signForm(AForm& form) const {
 	try {
 		form.beSigned(*this);
 		std::cout << GR
@@ -187,11 +187,17 @@ void	Bureaucrat::signForm(Form& form) const {
 	}
 }
 
-/**
- * attempt to execute the form. If successful, print something like:
- * <bureaucrat> executed <form>
- * If not, print an explicit error message.
- */
-		void	executeForm(AForm const & form) const {
-			// DO things
-		}
+/**********************************
+ * Calls AFrom::execute           *
+ * If fails sends an Error message*
+ *********************************/
+void	Bureaucrat::executeForm(const AForm& form) const {
+	try {
+		form.execute(*this);
+		std::cout << GR << _name << "executed" << form.getName() << RES << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cout << RD << "Error: " << _name << " couldn't execute " << form.getName() 
+			<< " because " << e.what() << RES << std::endl;
+	}
+}

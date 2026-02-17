@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:10:03 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/14 15:17:37 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:26:11 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define AFORM_HPP
 
 #include "utils.hpp"
+#include "Bureaucrat.hpp"
 
-class Bureaucrat; // Forward Declaration because I only use pointers (*) or references (&) in this class
+class Bureaucrat;
 
 class AForm {
 	private:
@@ -37,7 +38,7 @@ class AForm {
 		unsigned int	getGradeToSign() const;
 		unsigned int	getGradeToExecute() const;
 
-		//EXCEPTIONS
+		// EXCEPTIONS
 		class GradeTooHighException : public std::exception {
 			public:
 				const char *what(void) const throw();
@@ -47,11 +48,15 @@ class AForm {
 			public:
 				const char *what(void) const throw();
 		};
+		class NotSignedException : std::exception {
+			public:
+				const char *what(void) const throw();
+		};
 
 
 		// MEMBER FUNCTIONS
-		void	beSigned(const Bureaucrat& bureaucrat);
-		virtual void	execute(Bureaucrat const & executor) const; // This makes the class abstract
+		void			beSigned(const Bureaucrat& bureaucrat);
+		virtual void	execute(const Bureaucrat& executor) const = 0; // This makes the class abstract
 };
 
 // OPERATOR

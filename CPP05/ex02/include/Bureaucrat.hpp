@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:36:26 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/14 15:17:46 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:26:15 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "utils.hpp"
 #include "AForm.hpp"
+
+class	AForm;
 
 class Bureaucrat {
 	private:
@@ -54,7 +56,7 @@ class Bureaucrat {
 
 		// MEMBER FUNCTIONS
 		void	signForm(AForm& form) const;
-		void	executeForm(AForm const & form) const;
+		void	executeForm(const AForm& form) const;
 };
 
 //OPERATOR

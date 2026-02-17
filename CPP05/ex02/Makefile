@@ -6,7 +6,7 @@
 #    By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:42:13 by fmesa-or          #+#    #+#              #
-#    Updated: 2026/02/14 15:17:07 by fmesa-or         ###   ########.fr        #
+#    Updated: 2026/02/17 18:30:33 by fmesa-or         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ CLEAN = rm -f
 SRC_DIR = src
 SRC =	src/main.cpp \
 		src/Bureaucrat.cpp \
-		src/AForm.cpp
+		src/AForm.cpp \
+		src/PresidentialPardonForm.cpp \
+		src/RobotomyRequestForm.cpp \
+		src/ShrubberyCreationForm.cpp
 
 #Objects
 OBJ_DIR = obj
