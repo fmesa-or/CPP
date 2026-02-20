@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:02:23 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 18:17:21 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:45:19 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,29 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
+
+void testForm(const std::string& formName, const std::string& target) {
+	Intern intern;
+	AForm* form = intern.makeForm(formName, target);
+
+	if (!form)
+		return;
+
+	Bureaucrat example("fmesa", 5);
+	form->beSigned(example);
+	form->execute(example);
+
+	delete form;
+}
 
 int main(void) {
 	try {
-		srand(std::time(0)); // Robotomy needs random seed to randomize 50%
-		PresidentialPardonForm	presidential;
-		RobotomyRequestForm		robotomy;
-		ShrubberyCreationForm	shrubbery;
-
-		Bureaucrat example("antonimo", 5);
-		std::cout << std::endl;
-
-		presidential.beSigned(example);
-		robotomy.beSigned(example);
-		shrubbery.beSigned(example);
-		std::cout << std::endl;
-
-		presidential.execute(example);
-		std::cout << std::endl;
-		robotomy.execute(example);
-		std::cout << std::endl;
-		shrubbery.execute(example);
-
-	} catch (const AForm::NotSignedException& e) {
-		std::cout << "AForm Error: " << e.what() << std::endl;
-		return 1;
-	} catch (const AForm::GradeTooHighException& e) {
-		std::cout << "AForm Error: " << e.what() << std::endl;
-		return 1;
-	} catch (const AForm::GradeTooLowException& e) {
-		std::cout << "AForm Error: " << e.what() << std::endl;
-		return 1;
-	} catch (const Bureaucrat::GradeTooHighException& e) {
-		std::cout << "Bureaucrat Error: " << e.what() << std::endl;
-		return 1;
-	} catch (const Bureaucrat::GradeTooLowException& e) {
-		std::cout << "Bureaucrat Error: " << e.what() << std::endl;
+		srand(std::time(0));
+		testForm("PRESIDENTIAL PARDON", "A peasant");
+		testForm("ROBOTOMY REQUEST", "Bender");
+	} catch (const std::exception& e) {
+		std::cout << "Error: " << e.what() << std::endl;
 		return 1;
 	}
 

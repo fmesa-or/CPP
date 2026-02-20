@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 16:33:05 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 17:57:31 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:50:14 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
  * Constructor void*
  ******************/
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45), _target("Undefined") {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 } 
 
 /*************************
  * Constructor with input*
  ************************/
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 } 
 
 /*******************
  * Copy constructor*
  ******************/
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other), _target(other._target) {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 }
 
 /*********************
@@ -40,7 +40,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	if (this != &other) {
 		AForm::operator=(other);
 		_target = other._target;
-		std::cout << getName() << " has been assigned!" << std::endl;
+		std::cout << IT << getName() << " has been assigned!" << RES << std::endl;
 
 	}
 	return *this;
@@ -50,14 +50,14 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& o
  * Destructor*
  ************/
 RobotomyRequestForm::~RobotomyRequestForm(void) {
-	std::cout << "Destructor called on " << getName() << "with target: " << _target << std::endl;
+	std::cout << IT << "Destructor called on " << getName() << "with target: " << _target << RES << std::endl;
 }
 
 //			MEMBER FUNCTIONS
 
-/***********************************************************************************************
- * Creates a file <target>_shrubbery in the working directory and writes ASCII trees inside it *
- **********************************************************************************************/
+/*************************************************************************
+ * Makes some drilling noises and the 50% chances to robotomize <target> *
+ ************************************************************************/
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	if (!getIsSigned())
 		throw AForm::NotSignedException();

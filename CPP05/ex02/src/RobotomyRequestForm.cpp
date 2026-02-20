@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 16:33:05 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 17:57:31 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:38:49 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {
 
 //			MEMBER FUNCTIONS
 
-/***********************************************************************************************
- * Creates a file <target>_shrubbery in the working directory and writes ASCII trees inside it *
- **********************************************************************************************/
+/*************************************************************************
+ * Makes some drilling noises and the 50% chances to robotomize <target> *
+ ************************************************************************/
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	if (!getIsSigned())
 		throw AForm::NotSignedException();

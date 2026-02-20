@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:57:59 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 18:23:37 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:49:28 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
  * Constructor void*
  ******************/
 PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5), _target("Undefined") {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 } 
 
 /*************************
  * Constructor with input*
  ************************/
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 } 
 
 /*******************
  * Copy constructor*
  ******************/
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), _target(other._target) {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 }
 
 /*********************
@@ -40,7 +40,7 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 	if (this != &other) {
 		AForm::operator=(other);
 		_target = other._target;
-		std::cout << getName() << " has been assigned!" << std::endl;
+		std::cout << IT << getName() << " has been assigned!" << RES << std::endl;
 
 	}
 	return *this;
@@ -50,14 +50,14 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
  * Destructor*
  ************/
 PresidentialPardonForm::~PresidentialPardonForm(void) {
-	std::cout << "Destructor called on " << getName() << "with target: " << _target << std::endl;
+	std::cout << IT << "Destructor called on " << getName() << "with target: " << _target << RES << std::endl;
 }
 
 //			MEMBER FUNCTIONS
 
-/***********************************************************************************************
- * Creates a file <target>_shrubbery in the working directory and writes ASCII trees inside it *
- **********************************************************************************************/
+/*******************************************************
+ * Prints a pardon from Zaphond Beeblebrox to <target> *
+ ******************************************************/
 void	PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 	if (!getIsSigned())
 		throw AForm::NotSignedException();

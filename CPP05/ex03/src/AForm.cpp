@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 12:10:03 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 15:06:28 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:46:52 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
  * Construcotr*
  *************/
 AForm::AForm(void) : _name("undefined"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {
-	std::cout << "Form " << _name
+	std::cout << IT << "Form " << _name
 		<< " has been created with a gradeToSign value of " << _gradeToSign 
-		<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << std::endl;
+		<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << RES << std::endl;
 }
 
 /*************************
@@ -32,9 +32,9 @@ AForm::AForm(std::string name, const unsigned int gradeToSign, const unsigned in
 	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
 	else
-			std::cout << "Form " << _name
+			std::cout << IT << "Form " << _name
 				<< " has been created with a gradeToSign value of " << _gradeToSign 
-				<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << std::endl;
+				<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << RES << std::endl;
 }
 
 /*******************
@@ -42,9 +42,9 @@ AForm::AForm(std::string name, const unsigned int gradeToSign, const unsigned in
  ******************/
 AForm::AForm(const AForm& other)
 : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
-		std::cout << "Form " << _name
+		std::cout << IT << "Form " << _name
 			<< " has been copied with a gradeToSign value of " << _gradeToSign 
-			<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << std::endl;
+			<< " a gradeToExecute of " << _gradeToExecute << " and is not signed" << RES << std::endl;
 }
 
 /*********************************************************************************
@@ -54,7 +54,7 @@ AForm::AForm(const AForm& other)
 AForm&	AForm::operator=(const AForm& other) {
 	if (this != &other) {
 		_isSigned = other._isSigned;
-		std::cout << "Form assignment operator has been called." << std::endl;
+		std::cout << IT << "Form assignment operator has been called." << RES << std::endl;
 	}
 	return *this;
 }
@@ -63,7 +63,7 @@ AForm&	AForm::operator=(const AForm& other) {
  * Destructor*
  ************/
 AForm::~AForm(void) {
-	std::cout << "Destructor called on Form : " << _name << std::endl;
+	std::cout << IT << "Destructor called on Form : " << _name << RES << std::endl;
 }
 
 						// GETTERS

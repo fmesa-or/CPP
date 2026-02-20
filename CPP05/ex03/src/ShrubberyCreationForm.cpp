@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 14:36:33 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 18:32:53 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:51:37 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
  * Constructor void*
  ******************/
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137), _target("Undefined") {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 } 
 
 /*************************
  * Constructor with input*
  ************************/
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 } 
 
 /*******************
  * Copy constructor*
  ******************/
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), _target(other._target) {
-	std::cout << getName() << " has been created!" << std::endl;
+	std::cout << IT << getName() << " has been created!" << RES << std::endl;
 }
 
 /*********************
@@ -41,7 +41,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	if (this != &other) {
 		AForm::operator=(other);
 		_target = other._target;
-		std::cout << getName() << " has been assigned!" << std::endl;
+		std::cout << IT << getName() << " has been assigned!" << RES << std::endl;
 
 	}
 	return *this;
@@ -51,7 +51,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
  * Destructor*
  ************/
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
-	std::cout << "Destructor called on " << getName() << "with target: " << _target << std::endl;
+	std::cout << IT << "Destructor called on " << getName() << "with target: " << _target << RES << std::endl;
 }
 
 //			MEMBER FUNCTIONS

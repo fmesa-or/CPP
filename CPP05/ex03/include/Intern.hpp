@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 11:40:38 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/20 12:09:53 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:39:14 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ class AForm;
 
 class Intern {
 	private:
-		//creadores de formulario
+		AForm*	createShrubberyForm(const std::string& target);
+		AForm*	createRobotomyForm(const std::string& target);
+		AForm*	createPresidentialForm(const std::string& target);
+
 	public:
 		Intern(void);
 		Intern(const Intern& other);
@@ -27,6 +30,7 @@ class Intern {
 		~Intern(void);
 
 		AForm*	makeForm(std::string formName, std::string targetForm);
+
 };
 
 #endif

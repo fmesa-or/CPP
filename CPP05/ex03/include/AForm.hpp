@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 15:10:03 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 18:26:11 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:25:27 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm {
 		AForm(std::string name, const unsigned int gradeToSign, const unsigned int gradeToExecute);
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
-		~AForm(void);
+		virtual	~AForm(void);
 
 		// GETTERS
 		const std::string&	getName() const;

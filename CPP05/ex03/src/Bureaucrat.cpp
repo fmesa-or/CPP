@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:16:19 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 18:36:32 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:48:09 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
  * Construcotr*
  *************/
 Bureaucrat::Bureaucrat(void) : _name("undefined"), _grade(150) {
-	std::cout << "Bureaucrat " << _name
-		<< " has been created with a grade value of " << _grade << std::endl;
+	std::cout << IT << "Bureaucrat " << _name
+		<< " has been created with a grade value of " << _grade << RES << std::endl;
 }
 
 /***************************
@@ -31,8 +31,8 @@ Bureaucrat::Bureaucrat(const char *new_name, unsigned int new_grade) : _name(new
 		throw GradeTooLowException();
 	else
 	_grade = new_grade;
-	std::cout << "Bureaucrat " << _name
-		<< " has been created with a grade value of " << _grade << std::endl;
+	std::cout << IT << "Bureaucrat " << _name
+		<< " has been created with a grade value of " << _grade << RES << std::endl;
 }
 
 /*********************
@@ -45,16 +45,16 @@ Bureaucrat::Bureaucrat(const std::string &new_name, unsigned int new_grade) : _n
 		throw GradeTooLowException();
 	else
 	_grade = new_grade;
-	std::cout << "Bureaucrat " << _name
-		<< " has been created with a grade value of " << _grade << std::endl;
+	std::cout << IT << "Bureaucrat " << _name
+		<< " has been created with a grade value of " << _grade << RES << std::endl;
 }
 
 /*******************
  * Copy constructor*
  ******************/
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
-	std::cout << "Bureaucrat " << _name
-		<< " has been copied with a grade value of " << _grade << std::endl;
+	std::cout << IT << "Bureaucrat " << _name
+		<< " has been copied with a grade value of " << _grade << RES << std::endl;
 }
 
 /*************************************************************************
@@ -64,8 +64,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this != &other) {
 		_grade = other._grade;
-		std::cout << "Bureaucrat assignment operator has been called on "
-			<< _name << " with grade: " << _grade << std::endl;
+		std::cout << IT << "Bureaucrat assignment operator has been called on "
+			<< _name << " with grade: " << _grade << RES << std::endl;
 	}
 	return *this;
 }
@@ -74,7 +74,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other) {
  * Destructor*
  ************/
 Bureaucrat::~Bureaucrat(void) {
-	std::cout << "Destructor called on " << _name << std::endl;
+	std::cout << IT << "Destructor called on " << _name << RES << std::endl;
 }
 
 //EXCEPTIONS

@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:57:59 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/17 18:23:37 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:39:05 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 
 //			MEMBER FUNCTIONS
 
-/***********************************************************************************************
- * Creates a file <target>_shrubbery in the working directory and writes ASCII trees inside it *
- **********************************************************************************************/
+/*******************************************************
+ * Prints a pardon from Zaphond Beeblebrox to <target> *
+ ******************************************************/
 void	PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 	if (!getIsSigned())
 		throw AForm::NotSignedException();
