@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:05:33 by oceanscore        #+#    #+#             */
-/*   Updated: 2026/02/11 15:45:13 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:15:29 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ class ScalarConverter {
 
 		// METHODS
 //		bool	isNotPrintable(std::string& str);
-
-		static bool	isChar(const std::string& str);
-		static bool	isEmpty(const std::string& str);
-		static bool isSpecial(const std::string& str);
-		static bool	isNum(const std::string& str);
-		static bool isInt(const std::string& str);
-
 	public:
 		static void convert(const std::string& str);
 
 };
+
+
+	bool	isChar(const std::string& str);
+	bool	isEmpty(const std::string& str);
+	bool	isSpecial(const std::string& str);
+	bool	isNum(const std::string& str);
+	bool	isInt(const std::string& str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:25:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/11 19:10:34 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:19:00 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ScalarConverter::~ScalarConverter(void) {}
  * 		Second:                                                         *
  * 			Logic for external call, ex.: ./ScalarConvert "a" ;         *
  ***********************************************************************/
-bool	ScalarConverter::isChar(const std::string& str) {
+bool	isChar(const std::string& str) {
 	char	c;
 
 	if (str.length() == 3 && 
@@ -80,7 +80,7 @@ bool	ScalarConverter::isChar(const std::string& str) {
 	return false;
 }
 
-bool	ScalarConverter::isEmpty(const std::string& str) {
+bool	isEmpty(const std::string& str) {
 	if (str.length() == 0) {
 		std::cout << RD << "Error: Bad input: Input must not be empty." << RES << std::endl;
 		return true;
@@ -91,7 +91,7 @@ bool	ScalarConverter::isEmpty(const std::string& str) {
 /*****************************************************
  * Checks for -inf, +inf, nan, -inff, +inff and nanf.*
  ****************************************************/
-bool	ScalarConverter::isSpecial(const std::string& str) {
+bool	isSpecial(const std::string& str) {
 	std::string	doubleExceptions[] = {"nan", "-inf", "+inf"};
 	size_t	count = sizeof(doubleExceptions) / sizeof(doubleExceptions[0]);
 
@@ -134,8 +134,8 @@ bool	ScalarConverter::isNum(const std::string& str) {
 }
 */
 
-bool	ScalarConverter::isInt(const std::string& str) {
-
+bool	isInt(const std::string& str) {
+	
 	return false;
 }
 
