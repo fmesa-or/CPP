@@ -6,14 +6,17 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:36:26 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/24 13:41:39 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:26:15 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
+#include "utils.hpp"
+#include "AForm.hpp"
+
+class	AForm;
 
 class Bureaucrat {
 	private:
@@ -49,6 +52,11 @@ class Bureaucrat {
 			public:
 				const char *what(void) const throw();
 		};
+
+
+		// MEMBER FUNCTIONS
+		void	signForm(AForm& form) const;
+		void	executeForm(const AForm& form) const;
 };
 
 //OPERATOR

@@ -6,11 +6,12 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:16:19 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/11 13:29:58 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:36:32 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 /**************
  * Construcotr*
@@ -57,7 +58,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 }
 
 /*************************************************************************
- * Assignment operator                                                   *
+ * Assignment perator                                                    *
  * (Keep in mind that @param _name is a constant, so it can't be changed)*
  ************************************************************************/
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other) {
@@ -112,6 +113,7 @@ void	Bureaucrat::setGrade(unsigned int new_grade) {
 		throw GradeTooLowException();
 	else
 		_grade = new_grade;
+	std::cout << YL IT << _name << " grade changed to " << _grade << RES << std::endl;
 }
 
 /********************************************************************
@@ -156,11 +158,46 @@ void	Bureaucrat::decrementGrade(unsigned int n) {
 		_grade += n;
 }
 
-//OPERATOR
+// OPERATOR
 /**************************************************************************
  * Prints a defined message when try to use the full object in a std::cout*
  *************************************************************************/
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 	os << bureaucrat.getName() << ", bureaucrat grade: " << bureaucrat.getGrade();
 	return os;
+}
+
+// METHODS
+/*****************************************************************************
+ * Calls AForm::beSigned()                                                    *
+ *                                                                           *
+ * Prints if could signs -> <bureaucrat> signed <form>                       *
+ * Prints if couldn't. -> <bureaucrat> couldn’t sign <form> because <reason>.*
+ ****************************************************************************/
+void	Bureaucrat::signForm(AForm& form) const {
+	try {
+		form.beSigned(*this);
+		std::cout << GR
+			<< _name << " signed " << form.getName()
+			<< RES << std::endl;
+	} catch (const std::exception& e) {
+		std::cout << IB IT << _name
+			<< " couldn't sign " << form.getName() << " because " << e.what() << "."
+			<< RES << std::endl;
+	}
+}
+
+/**********************************
+ * Calls AFrom::execute           *
+ * If fails sends an Error message*
+ *********************************/
+void	Bureaucrat::executeForm(const AForm& form) const {
+	try {
+		form.execute(*this);
+		std::cout << GR << _name << "executed" << form.getName() << RES << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cout << RD << "Error: " << _name << " couldn't execute " << form.getName() 
+			<< " because " << e.what() << RES << std::endl;
+	}
 }

@@ -5,25 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 12:51:28 by fmesa-or          #+#    #+#             */
-/*   Updated: 2025/12/24 13:48:36 by fmesa-or         ###   ########.fr       */
+/*   Created: 2026/02/11 13:09:40 by fmesa-or          #+#    #+#             */
+/*   Updated: 2026/02/11 15:16:30 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "ScalarConverter.hpp"
 
-int	main(void) {
-	try {
-		Bureaucrat example("Pepín", 123);
-		std::cout << example.getName() << " has a grade of " << example.getGrade() << std::endl;
-		example.setGrade(13);
-		example.incrementGrade();
-		example.incrementGrade(11);
-		std::cout << example << std::endl;
-		example.decrementGrade();
-		example.decrementGrade(148);
-		std::cout << example << std::endl;
-	} catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
+int	main(int argc, char **argv) {
+	if (argc != 2) {
+		std::cout << RD << "Error: usage: ./ScalarConverter <value>" << RES << std::endl;
+		return 1;
 	}
+	(argv)++;
+	ScalarConverter::convert(*argv);
+	return 0;
 }
