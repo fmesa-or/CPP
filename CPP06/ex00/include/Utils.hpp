@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:09:20 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/11 14:23:21 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/12 19:32:31 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define UTILS_HPP
 
 #include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <cctype>
+#include <string>
 
 /* COLORS */
 # define GR		"\033[1;92m"	// Green
