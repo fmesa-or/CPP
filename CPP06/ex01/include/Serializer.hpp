@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 13:09:40 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/17 19:29:59 by fmesa-or         ###   ########.fr       */
+/*   Created: 2026/03/17 19:32:01 by fmesa-or          #+#    #+#             */
+/*   Updated: 2026/03/19 16:33:22 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
-int	main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << RD << "Error: usage: ./ScalarConverter <value>" << RES << std::endl;
-		return 1;
-	}
-	(argv)++;
-	ScalarConverter::convert(*argv);
-	return 0;
-}
+#include "Utils.hpp"
+
+struct	Data {
+	int	num;
+};
+
+class Serializer
+{
+private:
+	Serializer(void);
+	Serializer(const Serializer& other);
+	Serializer& operator=(const Serializer& other);
+	~Serializer();
+
+public:
+	static uintptr_t	serialize(Data* ptr);
+	static Data*		deserialize(uintptr_t raw);
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:25:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/12 19:59:21 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/17 19:29:48 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ bool	isChar(const std::string& str) {
  *************************************/
 bool	isEmpty(const std::string& str) {
 	if (str.length() == 0) {
-		std::cout << RD << "Error: Bad input: Input must not be empty." << RES << std::endl;
+		std::cerr << RD << "Error: Bad input: Input must not be empty." << RES << std::endl;
 		return true;
 	}
 	return false;
@@ -100,8 +100,8 @@ bool	isSpecial(const std::string& str) {
 
 	for(size_t i = 0; i < count; ++i) {
 		if (str == doubleExceptions[i]) {
-			std::cout << YL << "Char:\t" << CI IT << "Impossible" << RES << std::endl;
-			std::cout << YL << "Int:\t" << CI IT << "Impossible" << RES << std::endl;
+			std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
+			std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
 			std::cout << YL << "Float:\t" << CI IT << str << "f" << RES << std::endl;
 			std::cout << YL << "Double:\t" << CI IT << str << RES << std::endl;
 			
@@ -144,40 +144,60 @@ bool	isFloat(const std::string& str) {
 */
 
 
-
-/**
- * 
- */
-bool	isNum(const std::string& str) {
-	std::istringstream	arg(str);
-	// Funcion que busca el punto (solo un punto)
-		// Si encuentra punto, busca la f (solo una f y en ultima posición)
-			// Si es float -> float value;
-			// Else -> double value
-	// Else int value;
-
-
-	int	value;
-
-	if (!(arg >> value) || !arg.eof()) {
-		std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
-		std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
-		std::cout << YL << "Float:\t" << RD IT << "Impossible" << RES << std::endl;
-		std::cout << YL << "Double:\t" << RD IT << "Impossible" << RES << std::endl;
-		return false;
-	}
+static void	numPrinter(const double	value) {
 
 	if (value < 32 || value >= 127)
 		std::cout << YL << "Char:\t" << CI IT << "Non displayable" << RES << std::endl;
 	else
 		std::cout << YL << "Char:\t" << CI IT << static_cast<char>(value) << RES << std::endl;
 
-	std::cout << YL << "Int:\t" << CI IT << value << RES << std::endl;
+	std::cout << YL << "Int:\t" << CI IT << static_cast<int>(value) << RES << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << YL << "Float:\t" << CI IT << static_cast<float>(value) << "f" << RES << std::endl;
 	std::cout << YL << "Double:\t" << CI IT << static_cast<double>(value) << RES << std::endl;
-	return true;
+}
 
+static void	imposiblePrint(void) {
+	std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
+	std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
+	std::cout << YL << "Float:\t" << RD IT << "Impossible" << RES << std::endl;
+	std::cout << YL << "Double:\t" << RD IT << "Impossible" << RES << std::endl;
+}
+
+/**
+ * 
+ */
+bool	isNum(const std::string& str) {
+	std::string			strNew = str;
+	std::size_t			fPos = strNew.find('f');
+
+	if (fPos != std::string::npos){
+		if (fPos == strNew.size() - 1)
+			strNew.pop_back();
+		else {
+			imposiblePrint();
+			return false;
+		}
+	}
+
+	std::size_t	dot = strNew.find('.');
+	if (dot != std::string::npos && strNew.find('.', dot + 1) != std::string::npos) {
+		imposiblePrint();
+		return false;
+	}
+
+	std::istringstream	arg(strNew);
+	double				value;
+	if (!(arg >> value) || !arg.eof()) {
+		imposiblePrint();
+		return false;
+	}
+
+	std::cout << "FLAG" << std::endl;
+
+	numPrinter(value);
+
+	return true;
 }
 
 
@@ -196,10 +216,6 @@ void	ScalarConverter::convert(const std::string& str) {
 	if (isSpecial(str))
 		return;
 	if (isChar(str))
-		return;
-	if (isFloat(str))
-		return;
-	if (isDouble(str))
 		return;
 	if (isNum(str))
 		return;
