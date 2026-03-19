@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:25:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/17 19:29:48 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/19 16:59:44 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
  * Destructor*
  ************/
 ScalarConverter::~ScalarConverter(void) {}
+
+/* METHODS */
 
 /************************************************************************
  * Detects if it's a char.                                              *
@@ -125,25 +127,9 @@ bool	isSpecial(const std::string& str) {
 	return false;
 }
 
-/*
-bool	isFloat(const std::string& str) {
-	if (str.length() < 2 || str[str.length() - 1] != 'f')
-		return false;
-	
-	std::string	withoutF = str.substr(0, str.length() - 1);
-	std::istringstream	arg(withoutF);
-	float	value;
-
-	if (!(arg >> value) || !arg.eof())
-		return false;
-
-	// Char
-	if (value < 32 || value >= 127 || value != static_cast<int>(value))
-		std::cou
-}
-*/
-
-
+/*********************************************************************************
+ * Prints all difrent options. Also if something could not be printed, shows it. *
+ ********************************************************************************/
 static void	numPrinter(const double	value) {
 
 	if (value < 32 || value >= 127)
@@ -157,6 +143,9 @@ static void	numPrinter(const double	value) {
 	std::cout << YL << "Double:\t" << CI IT << static_cast<double>(value) << RES << std::endl;
 }
 
+/**********************************************
+ * Prints all options with value: Impossible. *
+ *********************************************/
 static void	imposiblePrint(void) {
 	std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
 	std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
@@ -164,9 +153,9 @@ static void	imposiblePrint(void) {
 	std::cout << YL << "Double:\t" << RD IT << "Impossible" << RES << std::endl;
 }
 
-/**
- * 
- */
+/*****************************************************************************
+ * Detects if it's an integer, a doble or a float and then prints it's value.*
+ ****************************************************************************/
 bool	isNum(const std::string& str) {
 	std::string			strNew = str;
 	std::size_t			fPos = strNew.find('f');
@@ -207,9 +196,6 @@ bool	isNum(const std::string& str) {
  * 	char, int, float or double   *
  ********************************/
 void	ScalarConverter::convert(const std::string& str) {
-	// Salvo caracteres, los valores numericos deben ser en notación decimal
-	// Solo caracteres validos. Mostrar mensaje en caso de ser non-displayable
-	// Manejar [-inff, +inff y nanf] y [-inf, +inf y nan]
 
 	if (isEmpty(str))
 		return;

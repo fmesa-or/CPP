@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:09:20 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/19 16:28:19 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/19 17:02:50 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define UTILS_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 /* COLORS */
 # define GR		"\033[1;92m"	// Green

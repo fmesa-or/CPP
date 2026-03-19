@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 19:32:05 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/19 16:08:06 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/19 17:00:10 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,3 @@ Data* Serializer::deserialize(uintptr_t raw) {
 	Data*	ptr = reinterpret_cast<Data*>(raw);
 	return ptr;
 }
-
