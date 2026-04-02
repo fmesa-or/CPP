@@ -6,11 +6,12 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:02:23 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/11 19:57:03 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/04/02 10:26:45 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctime>
+#include <cstdlib>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"

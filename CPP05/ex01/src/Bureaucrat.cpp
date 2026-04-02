@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:16:19 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/02/14 15:00:56 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/04/02 13:01:17 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 }
 
 /*************************************************************************
- * Assignment perator                                                    *
+ * Assignment operator                                                   *
  * (Keep in mind that @param _name is a constant, so it can't be changed)*
  ************************************************************************/
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other) {
