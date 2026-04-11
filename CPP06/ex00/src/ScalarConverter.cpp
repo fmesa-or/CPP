@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:25:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/19 16:59:44 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/04/11 13:40:01 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ bool	isNum(const std::string& str) {
 
 	if (fPos != std::string::npos){
 		if (fPos == strNew.size() - 1)
-			strNew.pop_back();
+			strNew.erase(strNew.size() - 1);
 		else {
 			imposiblePrint();
 			return false;
