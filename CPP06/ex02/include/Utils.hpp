@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 13:09:40 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/17 19:29:59 by fmesa-or         ###   ########.fr       */
+/*   Created: 2025/11/24 14:09:20 by fmesa-or          #+#    #+#             */
+/*   Updated: 2026/03/19 17:02:50 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-int	main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << RD << "Error: usage: ./ScalarConverter <value>" << RES << std::endl;
-		return 1;
-	}
-	(argv)++;
-	ScalarConverter::convert(*argv);
-	return 0;
-}
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+/* COLORS */
+# define GR		"\033[1;92m"	// Green
+# define RD		"\033[1;31m"	// Red
+# define CI		"\033[0;96m"	// Cian
+# define IB		"\033[0;94m"	// Intense Blue
+# define YL		"\033[0;93m"	// Yellow
+# define PI		"\033[1;35m"	// Pink
+# define IT		"\033[3m"		// Italic
+# define RES	"\033[0m"		// Reset
+
+#endif

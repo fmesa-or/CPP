@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:25:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/12 19:59:21 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/19 16:59:44 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
  * Destructor*
  ************/
 ScalarConverter::~ScalarConverter(void) {}
+
+/* METHODS */
 
 /************************************************************************
  * Detects if it's a char.                                              *
@@ -85,7 +87,7 @@ bool	isChar(const std::string& str) {
  *************************************/
 bool	isEmpty(const std::string& str) {
 	if (str.length() == 0) {
-		std::cout << RD << "Error: Bad input: Input must not be empty." << RES << std::endl;
+		std::cerr << RD << "Error: Bad input: Input must not be empty." << RES << std::endl;
 		return true;
 	}
 	return false;
@@ -100,8 +102,8 @@ bool	isSpecial(const std::string& str) {
 
 	for(size_t i = 0; i < count; ++i) {
 		if (str == doubleExceptions[i]) {
-			std::cout << YL << "Char:\t" << CI IT << "Impossible" << RES << std::endl;
-			std::cout << YL << "Int:\t" << CI IT << "Impossible" << RES << std::endl;
+			std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
+			std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
 			std::cout << YL << "Float:\t" << CI IT << str << "f" << RES << std::endl;
 			std::cout << YL << "Double:\t" << CI IT << str << RES << std::endl;
 			
@@ -125,59 +127,66 @@ bool	isSpecial(const std::string& str) {
 	return false;
 }
 
-/*
-bool	isFloat(const std::string& str) {
-	if (str.length() < 2 || str[str.length() - 1] != 'f')
-		return false;
-	
-	std::string	withoutF = str.substr(0, str.length() - 1);
-	std::istringstream	arg(withoutF);
-	float	value;
-
-	if (!(arg >> value) || !arg.eof())
-		return false;
-
-	// Char
-	if (value < 32 || value >= 127 || value != static_cast<int>(value))
-		std::cou
-}
-*/
-
-
-
-/**
- * 
- */
-bool	isNum(const std::string& str) {
-	std::istringstream	arg(str);
-	// Funcion que busca el punto (solo un punto)
-		// Si encuentra punto, busca la f (solo una f y en ultima posición)
-			// Si es float -> float value;
-			// Else -> double value
-	// Else int value;
-
-
-	int	value;
-
-	if (!(arg >> value) || !arg.eof()) {
-		std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
-		std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
-		std::cout << YL << "Float:\t" << RD IT << "Impossible" << RES << std::endl;
-		std::cout << YL << "Double:\t" << RD IT << "Impossible" << RES << std::endl;
-		return false;
-	}
+/*********************************************************************************
+ * Prints all difrent options. Also if something could not be printed, shows it. *
+ ********************************************************************************/
+static void	numPrinter(const double	value) {
 
 	if (value < 32 || value >= 127)
 		std::cout << YL << "Char:\t" << CI IT << "Non displayable" << RES << std::endl;
 	else
 		std::cout << YL << "Char:\t" << CI IT << static_cast<char>(value) << RES << std::endl;
 
-	std::cout << YL << "Int:\t" << CI IT << value << RES << std::endl;
+	std::cout << YL << "Int:\t" << CI IT << static_cast<int>(value) << RES << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << YL << "Float:\t" << CI IT << static_cast<float>(value) << "f" << RES << std::endl;
 	std::cout << YL << "Double:\t" << CI IT << static_cast<double>(value) << RES << std::endl;
-	return true;
+}
 
+/**********************************************
+ * Prints all options with value: Impossible. *
+ *********************************************/
+static void	imposiblePrint(void) {
+	std::cout << YL << "Char:\t" << RD IT << "Impossible" << RES << std::endl;
+	std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
+	std::cout << YL << "Float:\t" << RD IT << "Impossible" << RES << std::endl;
+	std::cout << YL << "Double:\t" << RD IT << "Impossible" << RES << std::endl;
+}
+
+/*****************************************************************************
+ * Detects if it's an integer, a doble or a float and then prints it's value.*
+ ****************************************************************************/
+bool	isNum(const std::string& str) {
+	std::string			strNew = str;
+	std::size_t			fPos = strNew.find('f');
+
+	if (fPos != std::string::npos){
+		if (fPos == strNew.size() - 1)
+			strNew.pop_back();
+		else {
+			imposiblePrint();
+			return false;
+		}
+	}
+
+	std::size_t	dot = strNew.find('.');
+	if (dot != std::string::npos && strNew.find('.', dot + 1) != std::string::npos) {
+		imposiblePrint();
+		return false;
+	}
+
+	std::istringstream	arg(strNew);
+	double				value;
+	if (!(arg >> value) || !arg.eof()) {
+		imposiblePrint();
+		return false;
+	}
+
+	std::cout << "FLAG" << std::endl;
+
+	numPrinter(value);
+
+	return true;
 }
 
 
@@ -187,19 +196,12 @@ bool	isNum(const std::string& str) {
  * 	char, int, float or double   *
  ********************************/
 void	ScalarConverter::convert(const std::string& str) {
-	// Salvo caracteres, los valores numericos deben ser en notación decimal
-	// Solo caracteres validos. Mostrar mensaje en caso de ser non-displayable
-	// Manejar [-inff, +inff y nanf] y [-inf, +inf y nan]
 
 	if (isEmpty(str))
 		return;
 	if (isSpecial(str))
 		return;
 	if (isChar(str))
-		return;
-	if (isFloat(str))
-		return;
-	if (isDouble(str))
 		return;
 	if (isNum(str))
 		return;

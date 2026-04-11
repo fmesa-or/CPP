@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:05:33 by oceanscore        #+#    #+#             */
-/*   Updated: 2026/03/12 18:19:02 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/03/19 16:56:29 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class ScalarConverter {
 		~ScalarConverter(void);
 
 		// METHODS
-//		bool	isNotPrintable(std::string& str);
 	public:
 		static void convert(const std::string& str);
 

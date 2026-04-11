@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 13:09:40 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/17 19:29:59 by fmesa-or         ###   ########.fr       */
+/*   Created: 2026/04/02 13:10:53 by fmesa-or          #+#    #+#             */
+/*   Updated: 2026/04/05 14:27:48 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "EasyFind.hpp"
 
-int	main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << RD << "Error: usage: ./ScalarConverter <value>" << RES << std::endl;
-		return 1;
+template <typename T>
+int	easyFind(T& container, int	num) {
+	typename T::iterator it;
+	for (it = container.begin(); it != container.end(); ++it) {
+		if (*it == num)
+			return *it;
 	}
-	(argv)++;
-	ScalarConverter::convert(*argv);
-	return 0;
+	throw std::runtime_error("Ocurrence not found");
 }

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 13:09:40 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/03/17 19:29:59 by fmesa-or         ###   ########.fr       */
+/*   Created: 2026/03/19 16:27:26 by fmesa-or          #+#    #+#             */
+/*   Updated: 2026/03/19 17:01:10 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+#define BASE_HPP
 
-int	main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << RD << "Error: usage: ./ScalarConverter <value>" << RES << std::endl;
-		return 1;
-	}
-	(argv)++;
-	ScalarConverter::convert(*argv);
-	return 0;
-}
+#include "Utils.hpp"
+
+class Base
+{
+	public:
+		virtual	~Base();
+
+		Base* generate(void);
+		void	identify(Base* p);
+		void	identify(Base& p);
+};
+
+
+#endif
