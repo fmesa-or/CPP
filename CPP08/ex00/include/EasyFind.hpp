@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Easyfind.tpp                                       :+:      :+:    :+:   */
+/*   EasyFind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 13:10:53 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/04/05 14:27:48 by fmesa-or         ###   ########.fr       */
+/*   Created: 2026/04/05 14:21:42 by fmesa-or          #+#    #+#             */
+/*   Updated: 2026/04/11 13:56:24 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "EasyFind.hpp"
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
+
+#include "EasyFind.tpp"
 
 template <typename T>
-int	easyFind(T& container, int	num) {
-	typename T::iterator it;
-	for (it = container.begin(); it != container.end(); ++it) {
-		if (*it == num)
-			return *it;
-	}
-	throw std::runtime_error("Ocurrence not found");
-}
+int	easyFind(T& container, int	num);
+
+#endif
