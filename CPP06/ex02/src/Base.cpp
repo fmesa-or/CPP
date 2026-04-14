@@ -56,12 +56,20 @@ void	Base::identify(Base* p) {
  * Same as other. Doesn't use a pointer inside this function *
  ************************************************************/
 void	Base::identify(Base& p) {
-	if (dynamic_cast<A*>(&p))
-		std::cout << YL << "class A identified" << RES << std::endl;
-	else if (dynamic_cast<B*>(&p))
-		std::cout << YL << "class B identified" << RES << std::endl;
-	else if (dynamic_cast<C*>(&p))
-		std::cout << YL << "class C identified" << RES << std::endl;
-	else
+	try
+	{
+		if (dynamic_cast<A*>(&p))
+			std::cout << YL << "class A identified" << RES << std::endl;
+		else if (dynamic_cast<B*>(&p))
+			std::cout << YL << "class B identified" << RES << std::endl;
+		else if (dynamic_cast<C*>(&p))
+			std::cout << YL << "class C identified" << RES << std::endl;
+		else
+			throw std::exception();
+	}
+	catch(const std::exception& e)
+	{
 		std::cout << RD << "Error: Something gonne wrong with your class." << RES << std::endl;
+		std::cerr << e.what() << '\n';
+	}
 }

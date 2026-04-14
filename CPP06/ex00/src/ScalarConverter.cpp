@@ -6,7 +6,7 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:25:07 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/04/11 13:40:01 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/04/14 20:41:35 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ bool	isSpecial(const std::string& str) {
 			std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
 			std::cout << YL << "Float:\t" << CI IT << str << "f" << RES << std::endl;
 			std::cout << YL << "Double:\t" << CI IT << str << RES << std::endl;
-			
+
 			return true;
 		}
 	}
@@ -119,7 +119,7 @@ bool	isSpecial(const std::string& str) {
 			std::cout << YL << "Int:\t" << RD IT << "Impossible" << RES << std::endl;
 			std::cout << YL << "Float:\t" << CI IT << str << RES << std::endl;
 			std::cout << YL << "Double:\t" << CI IT << doubleExceptions[i] << RES << std::endl;
-			
+
 			return true;
 		}
 	}
@@ -181,8 +181,6 @@ bool	isNum(const std::string& str) {
 		imposiblePrint();
 		return false;
 	}
-
-	std::cout << "FLAG" << std::endl;
 
 	numPrinter(value);
 

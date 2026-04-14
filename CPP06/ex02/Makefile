@@ -54,6 +54,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
+	@printf "\r                                                                        "
 	@printf "\r$(COLOR_INFO)Building $(NAME)... [%s]$(COLOR_RESET)" $(notdir $<)
 	@$(CC) $(CPPFLAGS) -c $< -o $@ $(HEADERS)
 
