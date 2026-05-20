@@ -6,13 +6,16 @@
 /*   By: fmesa-or <fmesa-or@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:10:53 by fmesa-or          #+#    #+#             */
-/*   Updated: 2026/05/20 14:08:05 by fmesa-or         ###   ########.fr       */
+/*   Updated: 2026/05/20 14:14:10 by fmesa-or         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "EasyFind.hpp"
 #include <algorithm>
 
+/******************************************************
+ * Finds a value @param num bin a container @param T. *
+ *****************************************************/
 template <typename T>
 int	easyFind(T& container, int num) {
 	typename T::iterator it = std::find(container.begin(), container.end(), num);
