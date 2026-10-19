@@ -116,12 +116,15 @@ bool	BitcoinExchange::validate_date(const std::string& date) {
 	return true;
 }
 
-/**
- * PROCESS_INPUT_FILE
- * 
- * Creates a stream called input from a C string type converted with c_str()
- *  
- */
+/*********************************************************************************
+ * PROCESS_INPUT_FILE                                                            *
+ *                                                                               *
+ * Creates a stream called input from a C string type converted with c_str()     *
+ *	Checks if can be opened and if it's empty.                                   *
+ * Stores the content of the file inside @param line string.                     *
+ *	Finds separator '|', checks if date is valid and stores the value.           *
+ *	Searchs for the date more closely (earlier) in the BD and prints it's value. *
+ ********************************************************************************/
 void	BitcoinExchange::process_input_file(const std::string& filename) {
 	std::ifstream	input(filename.c_str());
 	if(!input.is_open()) {
@@ -185,9 +188,11 @@ void	BitcoinExchange::process_input_file(const std::string& filename) {
 	}
 }
 
-/**
- * VALIDEXTENSION
- */
+/*******************************************************
+ * VALIDEXTENSION                                      *
+ *                                                     *
+ * Checks if the extensión of the file is a valid one. *
+ ******************************************************/
 void	validExtension(char **av) {
 	std::string	input = av[1];
 	size_t	pos = input.rfind('.');
@@ -199,9 +204,11 @@ void	validExtension(char **av) {
 	}
 }
 
-/**
- * TRIM
- */
+/**********************************************************************
+ * TRIM                                                               *
+ *                                                                    *
+ * Removes the spaces and tabulations from the beginging and the end. *
+ *********************************************************************/
 std::string	trim(const std::string& str) {
 	size_t	first = str.find_first_not_of(" \t");
 
