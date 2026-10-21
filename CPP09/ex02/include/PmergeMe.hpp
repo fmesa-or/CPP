@@ -7,9 +7,9 @@
 #include <set>
 #include <sstream>
 #include <ctime>
-// #include <cstdlib>
-// #include <cctype>
-// #include <stdexcept>
+#include <cstdlib>
+#include <cctype>
+#include <stdexcept>
 
 class PmergeMe {
 	private:
@@ -72,7 +72,7 @@ void	printMsg(e_container type, clock_t start, clock_t end, int argc);
 void	printAfter(std::deque<int>& container);
 
 // Print VECTOR
-void	prontAfter(std::vector<int>& container);
+void	printAfter(std::vector<int>& container);
 
 // TEMPLATE
 template	<typename Container>
