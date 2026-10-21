@@ -47,8 +47,8 @@ void	PmergeMe::generateJacobsthalSequence(std::vector<size_t>& sequence, size_t 
 	if (limit == 0)
 		return;
 
-	size_t	jacob_prev = 0;
-	size_t	jacob_curr = 0;
+	size_t	jacob_prev = 1;
+	size_t	jacob_curr = 1;
 
 	while (jacob_curr < limit) {
 		sequence.push_back(jacob_curr);
@@ -213,7 +213,7 @@ void	PmergeMe::fordJohnsonSort(std::vector<int>& container) {
 	binaryInsertWithJacobsthal(smallContainer, bigContainer);
 
 	container = bigContainer;
-	_finalDequeContainer = bigContainer;
+	_finalVectorContainer = bigContainer;
 }
 
 /**
@@ -289,10 +289,15 @@ void	PmergeMe::print(void) {
  *
  */
 bool	isNumber(const std::string& arg) {
-	for (size_t i = 0; i < arg.size(); ++i) {
-		if (i == 0 && arg[i] == '-')
-			i++;
-		if (!isdigit(arg[i]))
+	if (arg.empty())
+		return false;
+
+	size_t	start = (arg[0] == '-') ? 1 : 0;
+	if (start == arg.size())
+		return false;
+
+	for (size_t i = start; i < arg.size(); ++i) {
+		if (!isdigit(static_cast<unsigned char>(arg[i])))
 			return false;
 	}
 	return true;
@@ -302,20 +307,73 @@ bool	isNumber(const std::string& arg) {
  * 
  */
 bool	isIntRange(const std::string& arg) {
-	int	num = std::atoi(arg.c_str());
-	if (num < 0)
-		return false;
-	return true;
+	char	*end;
+
+	errno = 0;
+	long	num = std::strtol(arg.c_str(), &end, 10);
+	return (errno == 0 && num >= INT_MIN && num <= INT_MAX);
 }
 
 /**
  * 
  */
 bool	isPositive(const std::string& arg) {
-	std::istringstream	iss(arg);
-	int num;
+		if (arg.size() > 1 && arg[0] == '-' && arg[1] == '0')
+			return false;
+		return std::atoi(arg.c_str()) >= 0;
+}
 
-	if (!(iss >> num))
-		return false;
-	return true;
+
+//////////////// PRINT
+
+/**
+ * 
+ */
+void	printBefore(int argc, char **argv) {
+	std::cout << "Before:";
+
+	for (int i = 0; i < argc - 1; ++i)
+		std::cout << " " << argv[i];
+
+	std::cout << std::endl;
+}
+
+/**
+ * 
+ */
+void	printMsg(e_container type, clock_t start, clock_t end, int argc) {
+	double	elapsed_time = static_cast<double>(end - start) * (CLOCKS_PER_SEC / 10000000000.0);
+
+	if (type == DEQUE)
+		std::cout << "Time to process a range of " 
+			<< (argc - 1) << " elements with std::deque: "
+			<< elapsed_time << " us" << std::endl;
+	else
+		std::cout << "Time to process a range of " 
+			<< (argc - 1) << " elements with std::vector: "
+			<< elapsed_time << " us" << std::endl;
+}
+
+/**
+ * 
+ */
+void	printAfter(std::deque<int>& container) {
+	std::cout << "After:";
+
+	std::deque<int>::iterator	it = container.begin();
+	for(; it != container.end(); ++it)
+		std::cout << " " << *it;
+	std::cout << std::endl;
+}
+
+/**
+ * 
+ */
+void	prontAfter(std::vector<int>& container) {
+	std::cout << "After:";
+
+	std::vector<int>::iterator	it = container.begin();
+	for(; it != container.end(); ++it)
+		std::cout << " " << *it;
+	std::cout << std::endl;
 }

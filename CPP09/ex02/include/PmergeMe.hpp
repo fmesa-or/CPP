@@ -5,6 +5,11 @@
 #include <deque>
 #include <vector>
 #include <set>
+#include <sstream>
+#include <ctime>
+// #include <cstdlib>
+// #include <cctype>
+// #include <stdexcept>
 
 class PmergeMe {
 	private:
@@ -52,5 +57,28 @@ void	deleteDuplicates(std::deque<int>& container);
 // VECTOR
 void	parseArgs(std::vector<int>& container, char **argv);
 void	deleteDuplicates(std::vector<int>& container);
+
+//////////////// PRINT
+
+enum	e_container {
+	DEQUE,
+	VECTOR
+};
+
+void	printBefore(int argc, char **argv);
+void	printMsg(e_container type, clock_t start, clock_t end, int argc);
+
+// Print DEQUE
+void	printAfter(std::deque<int>& container);
+
+// Print VECTOR
+void	prontAfter(std::vector<int>& container);
+
+// TEMPLATE
+template	<typename Container>
+void	printContainerStatement(int argc, char **argv, Container& container) {
+	printBefore(argc, argv);
+	printAfter(container);
+}
 
 #endif
