@@ -10,6 +10,8 @@
 #include <cstdlib>
 #include <cctype>
 #include <stdexcept>
+#include <climits>
+#include <cerrno>
 
 class PmergeMe {
 	private:

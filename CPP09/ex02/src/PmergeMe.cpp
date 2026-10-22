@@ -83,32 +83,32 @@ void	PmergeMe::generateJacobsthalSequence(std::vector<size_t>& sequence, size_t 
  **************************************************************************************************/
 void	PmergeMe::generateInsertionOrder(std::vector<size_t>& insertionIndexes, size_t elementsToInsert) {
 	if (elementsToInsert == 0)
-		return;
+		return ;
 	
-		std::vector<size_t>	jacobsthalPositions;
-		generateJacobsthalSequence(jacobsthalPositions, elementsToInsert);
+	std::vector<size_t>	jacobsthalPositions;
+	generateJacobsthalSequence(jacobsthalPositions, elementsToInsert);
 
-		std::vector<bool>	alreadyInserted(elementsToInsert, false);
-		size_t	previousJacob = 0;
+	std::vector<bool>	alreadyInserted(elementsToInsert, false);
+	size_t				previousJacob = 0;
 
-		for (size_t i = 0; i < jacobsthalPositions.size(); ++i) {
-			size_t	currentJacob = jacobsthalPositions[i];
-			size_t	endRange = (currentJacob <= elementsToInsert) ? currentJacob : elementsToInsert;
+	for (size_t i = 0; i < jacobsthalPositions.size(); ++i) {
+		size_t	currentJacob = jacobsthalPositions[i];
+		size_t	endRange = (currentJacob <= elementsToInsert) ? currentJacob : elementsToInsert;
 
-			for (size_t pos = endRange; pos > previousJacob; --pos) {
-				size_t	idx = pos - 1;
-				if(!alreadyInserted[idx]) {
-					insertionIndexes.push_back(idx);
-					alreadyInserted[idx] = true;
-				}
+		for (size_t pos = endRange; pos > previousJacob; --pos) {
+			size_t	idx = pos - 1;
+			if(!alreadyInserted[idx]) {
+				insertionIndexes.push_back(idx);
+				alreadyInserted[idx] = true;
 			}
-			previousJacob = currentJacob;
 		}
+		previousJacob = currentJacob;
+	}
 
-		for (size_t i = 0; i < elementsToInsert; ++i) {
-			if (!alreadyInserted[i])
-				insertionIndexes.push_back(i);
-		}
+	for (size_t i = 0; i < elementsToInsert; ++i) {
+		if (!alreadyInserted[i])
+			insertionIndexes.push_back(i);
+	}
 }
 
 // DEQUE
