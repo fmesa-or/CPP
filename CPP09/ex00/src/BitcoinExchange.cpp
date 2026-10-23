@@ -135,7 +135,7 @@ void	BitcoinExchange::process_input_file(const std::string& filename) {
 	std::string	line;
 
 	while(std::getline(input, line)) {
-		if (line.empty()) {
+		if (line.empty() || ((line.find("date") != std::string::npos) && ((line.find("value") != std::string::npos)))) {
 			continue;
 		}
 		
