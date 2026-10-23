@@ -133,17 +133,11 @@ void	BitcoinExchange::process_input_file(const std::string& filename) {
 	}
 
 	std::string	line;
-	while(line.empty()) {
-
-		if (!std::getline(input, line)) {
-			std::cerr << "Error: file " << filename << " is empty" << std::endl;
-			exit(1);
-		}
-	}
 
 	while(std::getline(input, line)) {
-		if (line.empty())
+		if (line.empty()) {
 			continue;
+		}
 		
 		size_t	pos = line.find('|');
 		if(pos == std::string::npos) {
@@ -193,7 +187,7 @@ void	BitcoinExchange::process_input_file(const std::string& filename) {
  *                                                     *
  * Checks if the extensión of the file is a valid one. *
  ******************************************************/
-void	validExtension(char **av) {
+/*void	validExtension(char **av) {
 	std::string	input = av[1];
 	size_t	pos = input.rfind('.');
 	std::string	extension = input.substr(pos + 1);
@@ -203,6 +197,7 @@ void	validExtension(char **av) {
 		exit(1);
 	}
 }
+*/
 
 /**********************************************************************
  * TRIM                                                               *

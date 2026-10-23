@@ -6,7 +6,7 @@ int	main(int argc, char **av) {
 		return 1;
 	}
 
-	validExtension(av);
+	// validExtension(av);
 	BitcoinExchange	btcExchanger("data.csv");
 	btcExchanger.process_input_file(av[1]);
 
